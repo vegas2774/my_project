@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dmytro Palchykov - Programmer Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- <script src="script.js" defer></script> -->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
@@ -14,13 +15,28 @@
               border-radius: 10px;
               display: inline-block;*/
 
-        margin-top: 350px;
+        /* margin-top: 350px;
         display: inline-block;
         justify-content: center;
         align-items: center;
         width: 90%;
         box-sizing: border-box;
-        transition: all 0.5s ease;
+        transition: all 0.5s ease; */
+
+        width: 300vw;
+        height: 100vh;
+        display: flex;
+        position: absolute;
+        translate: 100vw 0;
+        transition: 2s;
+      }
+      .scrin {
+        width: 100vw;
+        height: 100vh;
+        border: #000000;
+        background-color: #f9f5f5;
+        opacity: 0.3;
+        transition: 0.4s;
       }
       /* #img  { */
       /* width: 800px;
@@ -31,16 +47,17 @@
                   width: 90%;
                   height: 60%;
                   padding: 10px; */
-      @media (max-width: 360px) {
+      /* @media (max-width: 360px) {
         #img {
           width: 70%;
           height: 70%;
         }
-      }
+      } */
       body {
+        overflow: hidden;
         max-width: 60%;
         max-height: 60%;
-        transition: all 0.5s ease;
+        transition: 0.4s;
       }
       body {
         width: 100%;
@@ -78,16 +95,18 @@
               /* background-color: white; */
         /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
       }
-      header {
+      #headTitle {
         background-color: #000000;
         width: 3600px;
-        height: 130px;
+        height: 134px;
         color: white;
         padding: 10px;
+        top: 45%;
         text-align: center;
-        position: relative;
+        position: fixed;
+        transition: 0.4s;
         opacity: 0.3;
-        z-index: 1000;
+        z-index: 1100;
       }
 
       header h1 {
@@ -216,17 +235,31 @@
     </style>
   </head>
   <body>
+    <canvas id="canvas"></canvas>
+    <header id="headTitle">
+      <h1>Frontend Developer</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
     <div id="web">
-      <header>
-        <h1>Frontend Developer</h1>
-        <nav>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+      <div style="background-color: aqua" class="scrin">
+        <p>
+          Hello! I am , a passionate programmer with expertise in various
+          programming languages and technologies. I love creating efficient and
+          scalable solutions for complex problems.
+        </p>
+      </div>
+      <div style="background-color: rgb(228, 232, 15)" class="scrin">
+        <p>Hello World</p>
+      </div>
+      <div style="background-color: rgb(237, 6, 72)" class="scrin">
+        <p>I am</p>
+      </div>
 
       <!-- <section id="about" class="container">
         <h2>About Me</h2>
@@ -265,6 +298,31 @@
     <footer>
       <p>&copy; 2024 All rights reserved.</p>
     </footer>
-    <script src="script.js" defer></script>
+    <script>
+      let screens = Array.from(document.getElementsByClassName("scrin"));
+      let numberScreens = screens.length;
+      let web = document.getElementById("web");
+      let currentScreens = 0;
+      let headTitle = document.getElementById("headTitle");
+
+      window.addEventListener("wheel", function (event) {
+        if (event.deltaY > 0) {
+          if (currentScreens < numberScreens) {
+            currentScreens++;
+            web.style.left = -currentScreens * 100 + "vw";
+            headTitle.style.top = "0%";
+            headTitle.style.transition = 0.4 + "s";
+          }
+        } else if (event.deltaY < 0) {
+          if (currentScreens > -3) {
+            currentScreens--;
+            web.style.left = -currentScreens * 100 + "vw";
+          }
+        } else {
+          headTitle.style.top = "40%";
+          headTitle.style.transition = 0.4 + "s";
+        }
+      });
+    </script>
   </body>
 </html>
