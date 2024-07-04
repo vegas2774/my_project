@@ -22,7 +22,7 @@
         height: 100vh;
         border: #000000;
         background-color: #f9f5f5;
-        opacity: 0.3;
+        opacity: 0.8;
         transition: 0.4s;
       }
 
@@ -70,7 +70,7 @@
       #headTitle {
         background-color: #000000;
         width: 3600px;
-        height: 134px;
+        height: 129px;
         color: white;
         padding: 10px;
         top: 45%;
@@ -143,14 +143,15 @@
       <h1>Frontend Developer</h1>
       <nav>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li id="inf1"><a href="#about">About</a></li>
+          <li id="inf2"><a href="#portfolio">Portfolio</a></li>
+          <li id="inf3"><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
     <div id="web">
       <div style="background-color: aqua" class="scrin">
+        <img src="fon1.png" alt="no img" />
         <p>
           Hello! I am , a passionate programmer with expertise in various
           programming languages and technologies. I love creating efficient and
@@ -173,6 +174,7 @@
       let web = document.getElementById("web");
       let currentScreens = 0;
       let headTitle = document.getElementById("headTitle");
+      let nav = document.getElementById("inf1");
 
       window.addEventListener("wheel", function (event) {
         if (event.deltaY > 0) {
@@ -181,6 +183,7 @@
             web.style.left = -currentScreens * 100 + "vw";
             headTitle.style.top = "0%";
             headTitle.style.transition = 0.4 + "s";
+            document.getElementById("inf1").textContent = "Home";
           }
         } else if (event.deltaY < 0) {
           if (currentScreens > -3) {
@@ -192,6 +195,7 @@
         } else {
           headTitle.style.top = "40%";
           headTitle.style.transition = 0.4 + "s";
+          document.getElementById("inf1").textContent = "About";
         }
       });
     </script>
