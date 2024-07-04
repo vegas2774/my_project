@@ -15,7 +15,7 @@
         display: flex;
         position: absolute;
         translate: 100vw 0;
-        transition: 2s;
+        transition: 0.4s;
       }
       .scrin {
         width: 100vw;
@@ -143,14 +143,20 @@
       <h1>Frontend Developer</h1>
       <nav>
         <ul>
-          <li id="inf1"><a href="#about">About</a></li>
-          <li id="inf2"><a href="#portfolio">Portfolio</a></li>
-          <li id="inf3"><a href="#contact">Contact</a></li>
+          <li>
+            <a href="#" onclick="move(1)"><span id="inf1">About</span></a>
+          </li>
+          <li id="inf2">
+            <a href="#" onclick="move(2)"><span id="inf2">Portfolio</span></a>
+          </li>
+          <li id="inf3">
+            <a href="#" onclick="move(3)"><span id="inf3">Contact</span></a>
+          </li>
         </ul>
       </nav>
     </header>
     <div id="web">
-      <div style="background-color: aqua" class="scrin">
+      <div id="about" style="background-color: aqua" class="scrin">
         <img src="fon1.png" alt="no img" />
         <p>
           Hello! I am , a passionate programmer with expertise in various
@@ -158,10 +164,14 @@
           scalable solutions for complex problems.
         </p>
       </div>
-      <div style="background-color: rgb(228, 232, 15)" class="scrin">
+      <div
+        id="portfolio"
+        style="background-color: rgb(228, 232, 15)"
+        class="scrin"
+      >
         <p>Hello World</p>
       </div>
-      <div style="background-color: rgb(237, 6, 72)" class="scrin">
+      <div id="contact" style="background-color: rgb(237, 6, 72)" class="scrin">
         <p>I am</p>
       </div>
     </div>
@@ -175,28 +185,36 @@
       let currentScreens = 0;
       let headTitle = document.getElementById("headTitle");
       let nav = document.getElementById("inf1");
+      function move(num) {
+        currentScreens = num;
+        web.style.left = -currentScreens * 100 + "vw";
+        web.style.transition = 2 + "s";
+      }
 
       window.addEventListener("wheel", function (event) {
         if (event.deltaY > 0) {
           if (currentScreens < numberScreens) {
             currentScreens++;
             web.style.left = -currentScreens * 100 + "vw";
-            headTitle.style.top = "0%";
             headTitle.style.transition = 0.4 + "s";
-            document.getElementById("inf1").textContent = "Home";
           }
         } else if (event.deltaY < 0) {
           if (currentScreens > -3) {
             currentScreens--;
             web.style.left = -currentScreens * 100 + "vw";
-            headTitle.style.top = "0%";
             headTitle.style.transition = 0.4 + "s";
           }
-        } else {
-          headTitle.style.top = "40%";
+        }
+        if (currentScreens == 0) {
           headTitle.style.transition = 0.4 + "s";
           document.getElementById("inf1").textContent = "About";
+        } else {
+          headTitle.style.top = "0%";
+          document.getElementById("inf1").textContent = "Home";
         }
+        console.log("Номер кадра: " + currentScreens);
+        console.log("Дельта Y: " + event.deltaY);
+        console.log("Дельта X: " + event.deltaX);
       });
     </script>
   </body>
