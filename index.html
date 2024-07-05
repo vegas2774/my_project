@@ -48,7 +48,7 @@
         background-repeat: no-repeat;
       }
 
-      header {
+      /* header {
         background-color: #000000;
         width: 100vw;
         color: white;
@@ -58,18 +58,18 @@
         top: 0;
         opacity: 0.5;
         z-index: 1000;
-      }
+      } */
 
-      .container {
+      /* .container {
         max-width: 800px;
         margin: 20px auto;
         padding: 20px;
-      }
+      } */
 
       #headTitle {
         background-color: #000000;
         width: 100vw;
-        height: 134px;
+        height: 13.4vh;
         color: white;
         padding: 10px;
         top: 45%;
@@ -85,21 +85,21 @@
         font-size: 4em;
         text-align: center;
         position: absolute;
-        left: 250px;
+        left: 15vw;
       }
 
       nav ul {
         position: absolute;
         list-style: none;
         padding: 50px;
-        top: 20px;
-        left: 300px;
+        top: 25px;
+        left: 15vw;
         text-align: center;
         font-size: 1.5em;
       }
 
       nav ul li {
-        display: inline;
+        display: inline-block;
         margin: 0 15px;
       }
 
@@ -134,6 +134,24 @@
         opacity: 0.7;
         z-index: 1000;
       }
+      #homeBtn {
+        border-radius: 3px solid #000000;
+      }
+      #about {
+        background-color: #000000;
+        border-radius: 3px solid #000000;
+        opacity: 0.4;
+      }
+      #portfolio {
+        background-color: #000000;
+        border-radius: 3px solid #000000;
+        opacity: 0.4;
+      }
+      #contact {
+        background-color: #000000;
+        border-radius: 3px solid #000000;
+        opacity: 0.4;
+      }
     </style>
   </head>
   <body>
@@ -166,7 +184,7 @@
       </nav>
     </header>
     <div id="web">
-      <div id="about" style="background-color: aqua" class="scrin">
+      <div id="about" class="scrin">
         <img src="fon1.png" alt="no img" />
         <p>
           Hello! I am , a passionate programmer with expertise in various
@@ -174,14 +192,10 @@
           scalable solutions for complex problems.
         </p>
       </div>
-      <div
-        id="portfolio"
-        style="background-color: rgb(228, 232, 15)"
-        class="scrin"
-      >
+      <div id="portfolio" class="scrin">
         <p>Hello World</p>
       </div>
-      <div id="contact" style="background-color: rgb(237, 6, 72)" class="scrin">
+      <div id="contact" class="scrin">
         <p>I am</p>
       </div>
     </div>
@@ -195,17 +209,11 @@
       let currentScreens = 0;
       let headTitle = document.getElementById("headTitle");
       let nav = document.getElementById("inf1");
-      // let isScrolling = false;
 
       function move(num) {
-        // if (isScrolling) return;
-        // isScrolling = true;
         currentScreens = num;
         web.style.left = -currentScreens * 100 + "vw";
         web.style.transition = 0.4 + "s";
-        // setTimeout(() => {
-        //   isScrolling = false;
-        // }, 2000); // 0.6 секунды паузы между скроллами
       }
 
       function updateHeadTitle() {
