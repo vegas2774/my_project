@@ -144,13 +144,24 @@
       <nav>
         <ul>
           <li>
-            <a href="#" onclick="move(1)"><span id="inf1">About</span></a>
+            <a id="homeBtn" href="#" onclick="move(0)"
+              ><span id="inf0">Home</span></a
+            >
           </li>
-          <li id="inf2">
-            <a href="#" onclick="move(2)"><span id="inf2">Portfolio</span></a>
+          <li>
+            <a id="aboutBtn" href="#" onclick="move(1)"
+              ><span id="inf1">About</span></a
+            >
           </li>
-          <li id="inf3">
-            <a href="#" onclick="move(3)"><span id="inf3">Contact</span></a>
+          <li>
+            <a id="portfolioBtn" href="#" onclick="move(2)"
+              ><span id="inf2">Portfolio</span></a
+            >
+          </li>
+          <li>
+            <a id="contactBtn" href="#" onclick="move(3)"
+              ><span id="inf3">Contact</span></a
+            >
           </li>
         </ul>
       </nav>
@@ -185,10 +196,17 @@
       let currentScreens = 0;
       let headTitle = document.getElementById("headTitle");
       let nav = document.getElementById("inf1");
+      let isScrolling = false;
+
       function move(num) {
+        // if (isScrolling) return;
+        // isScrolling = true;
         currentScreens = num;
         web.style.left = -currentScreens * 100 + "vw";
         web.style.transition = 0.4 + "s";
+        // setTimeout(() => {
+        //   isScrolling = false;
+        // }, 2000); // 0.6 секунды паузы между скроллами
       }
 
       window.addEventListener("wheel", function (event) {
@@ -196,29 +214,70 @@
           if (currentScreens < numberScreens) {
             currentScreens++;
             web.style.left = -currentScreens * 100 + "vw";
-            headTitle.style.transition = 0.7 + "s";
+            headTitle.style.transition = 0.2 + "s";
             headTitle.style.top = "0%";
           }
         } else if (event.deltaY < 0) {
           if (currentScreens > 0) {
             currentScreens--;
             web.style.left = -currentScreens * 100 + "vw";
-            headTitle.style.transition = 0.7 + "s";
+            headTitle.style.transition = 0.2 + "s";
             headTitle.style.top = "0%";
           }
         }
-        if (currentScreens === 0) {
-          headTitle.style.transition = 0.7 + "s";
-          document.getElementById("inf1").textContent = "About";
-          headTitle.style.top = "40%";
-          c;
-        } else {
-          document.getElementById("inf1").textContent = "Home";
+        if (currentScreens == 0) {
+          headTitle.style.transition = 0.2 + "s";
+          document.getElementById("homebtn");
+          headTitle.style.top = "45%";
         }
+
         console.log("Номер кадра: " + currentScreens);
         console.log("Дельта Y: " + event.deltaY);
         console.log("Дельта X: " + event.deltaX);
       });
+
+      document.getElementById("homeBtn").addEventListener("click", function () {
+        if (currentScreens === 0) {
+          headTitle.style.top = "45%";
+          headTitle.style.transition = 0.2 + "s";
+        } else {
+          headTitle.style.top = "0%";
+        }
+      });
+
+      document
+        .getElementById("aboutBtn")
+        .addEventListener("click", function () {
+          if (currentScreens > 0) {
+            headTitle.style.top = "0%";
+            headTitle.style.transition = 0.2 + "s";
+            document.getElementById("inf1").textContent = "About";
+          } else {
+            headTitle.style.top = "45%";
+          }
+        });
+      document
+        .getElementById("portfolioBtn")
+        .addEventListener("click", function () {
+          if (currentScreens > 0) {
+            headTitle.style.top = "0%";
+            headTitle.style.transition = 0.2 + "s";
+            document.getElementById("inf2").textContent = "Portfolio";
+          } else {
+            headTitle.style.top = "45%";
+          }
+        });
+      document
+        .getElementById("contackBtn")
+        .addEventListener("click", function () {
+          if (currentScreens > 0) {
+            headTitle.style.top = "0%";
+            headTitle.style.transition = 0.2 + "s";
+            document.getElementById("inf3").textContent = "Contact";
+          } else {
+            headTitle.style.top = "45%";
+          }
+        });
     </script>
   </body>
 </html>
