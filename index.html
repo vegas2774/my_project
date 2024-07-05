@@ -70,7 +70,7 @@
       #headTitle {
         background-color: #000000;
         width: 3600px;
-        height: 129px;
+        height: 134px;
         color: white;
         padding: 10px;
         top: 45%;
@@ -188,7 +188,7 @@
       function move(num) {
         currentScreens = num;
         web.style.left = -currentScreens * 100 + "vw";
-        web.style.transition = 2 + "s";
+        web.style.transition = 0.4 + "s";
       }
 
       window.addEventListener("wheel", function (event) {
@@ -196,20 +196,23 @@
           if (currentScreens < numberScreens) {
             currentScreens++;
             web.style.left = -currentScreens * 100 + "vw";
-            headTitle.style.transition = 0.4 + "s";
+            headTitle.style.transition = 0.7 + "s";
+            headTitle.style.top = "0%";
           }
         } else if (event.deltaY < 0) {
-          if (currentScreens > -3) {
+          if (currentScreens > 0) {
             currentScreens--;
             web.style.left = -currentScreens * 100 + "vw";
-            headTitle.style.transition = 0.4 + "s";
+            headTitle.style.transition = 0.7 + "s";
+            headTitle.style.top = "0%";
           }
         }
-        if (currentScreens == 0) {
-          headTitle.style.transition = 0.4 + "s";
+        if (currentScreens === 0) {
+          headTitle.style.transition = 0.7 + "s";
           document.getElementById("inf1").textContent = "About";
+          headTitle.style.top = "40%";
+          c;
         } else {
-          headTitle.style.top = "0%";
           document.getElementById("inf1").textContent = "Home";
         }
         console.log("Номер кадра: " + currentScreens);
