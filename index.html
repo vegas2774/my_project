@@ -51,55 +51,74 @@
 
       #headTitle {
         display: flex;
-        background-color: #000000;
+        background-color:rgba(0, 0, 0, 0.5);
         width: 100vw;
         height: 134px;
-        color: white;
         padding: 10px;
         top: 45%;
         text-align: center;
         position: absolute;
         transition: 0.4s;
-        opacity: 0.3;
         z-index: 1000;
       }
 
       header h1 {
         margin: 10px 0;
         font-size: 64px;
+        color: rgba(255, 255, 255, 0.5);
         text-align: center;
         position: absolute;
-        left: 15vw;
+        left: 22vw;
       }
 
       nav ul {
         position: absolute;
         list-style: none;
-        padding: 50px;
-        top: 25px;
-        left: 15vw;
-        text-align: center;
-        font-size: 1.5em;
+        padding: 40px;
+        top: 40px;
+        left: 10vw;   
       }
 
       nav ul li {
         display: inline-block;
-        margin: 0 15px;
+        margin: 0 14px;
       }
 
       nav ul li a {
-        color: white;
+        color:rgba(255, 255, 255, 0.5);
         text-decoration: none;
+        font-size: 22px;
+        padding: 20px 10px 10px 10px;
       }
 
       nav ul li a:hover {
-        color: rgb(178, 163, 248);
+        color: rgb(208, 247, 53);
       }
 
       nav ul li a:active {
         color: white;
       }
+      nav ul li a img {
+        background-color: #e2ece2;
+        padding: 0px;
+        z-index: 1200;     
+       }
+      .nav-icon {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+      .menu-text {
+    display: inline-block;
+    margin-left: 10px;
+      }
 
+    @media (max-width: 768px) {
+    .menu-text {
+        display: none;
+    }
+}
       h2 {
         color: #ffffff;
         text-align: center;
@@ -150,7 +169,7 @@
         color: white;
         font-size: 18px;
         position: absolute;
-        left: 20vw;
+        left: 25vw;
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
@@ -211,26 +230,30 @@
       <nav>
         <ul>
           <li>
-            <a id="homeBtn" href="#" onclick="move(0)"
-              ><span id="inf0">Home</span></a
-            >
+              <a id="homeBtn" href="#" onclick="move(0)">
+                  <img src="Home.png" alt="Home" class="nav-icon">
+                  <span id="inf0" class="menu-text">Home</span>
+              </a>
           </li>
           <li>
-            <a id="aboutBtn" href="#" onclick="move(1)"
-              ><span id="inf1">About</span></a
-            >
+              <a id="aboutBtn" href="#" onclick="move(1)">
+                  <img src="About.png" alt="About" class="nav-icon">
+                  <span id="inf1" class="menu-text">About</span>
+              </a>
           </li>
           <li>
-            <a id="portfolioBtn" href="#" onclick="move(2)"
-              ><span id="inf2">Portfolio</span></a
-            >
+              <a id="portfolioBtn" href="#" onclick="move(2)">
+                  <img src="Portfolio.png" alt="Portfolio" class="nav-icon">
+                  <span id="inf2" class="menu-text">Portfolio</span>
+              </a>
           </li>
           <li>
-            <a id="contactBtn" href="#" onclick="move(3)"
-              ><span id="inf3">Contact</span></a
-            >
+              <a id="contactBtn" href="#" onclick="move(3)">
+                  <img src="Contact.png" alt="Contact" class="nav-icon">
+                  <span id="inf3" class="menu-text">Contact</span>
+              </a>
           </li>
-        </ul>
+      </ul>
       </nav>
     </header>
     <div id="web">
