@@ -141,7 +141,11 @@
         border-radius: 3px solid #000000;
         position: relative;
       }
-
+      #contactInf{
+        position: relative;
+        left: 5vw;
+      }
+     
       .containerAbout {
         color: white;
         font-size: 18px;
@@ -162,9 +166,10 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .contact-form h2 {
-            text-align: center;
-            margin-bottom: 20px;
+         h2 {
+            text-align: left;
+            padding-left: 170px;
+            margin-bottom: 100px;
         }
         .form-group {
             margin-bottom: 20px;
@@ -185,7 +190,7 @@
             height: 100px;
         }
         .form-group button {
-            background-color: #4CAF50;
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 12px 20px;
             border: none;
@@ -194,7 +199,8 @@
             font-size: 16px;
         }
         .form-group button:hover {
-            background-color: #45a049;
+            background-color: #e2ece2;
+            color: #000000;
         }
     </style>
   </head>
@@ -382,7 +388,7 @@
       </div>
       <div id="contact" class="scrin">
         <h2>Оставьте свои контактные данные</h2>
-        <form action="#" method="post">
+        <form action="#" method="post" id="contactInf">
             <div class="form-group">
                 <label for="firstname" style="color: white">Имя:</label>
                 <input type="text" id="firstname" name="firstname" required>
@@ -409,80 +415,6 @@
     <footer>
       <p>&copy; 2024 All rights reserved.</p>
     </footer>
-    <script>
-      let screens = Array.from(document.getElementsByClassName("scrin"));
-      let numberScreens = screens.length;
-      let web = document.getElementById("web");
-      let currentScreens = 0;
-      let headTitle = document.getElementById("headTitle");
-      let nav = document.getElementById("inf1");
-
-      function move(num) {
-        currentScreens = num;
-        web.style.left = -currentScreens * 100 + "vw";
-        web.style.transition = 0.4 + "s";
-      }
-
-      function updateHeadTitle() {
-        if (currentScreens === 0) {
-          headTitle.style.top = "45%";
-          headTitle.style.transition = "0.2s";
-        } else {
-          headTitle.style.top = "0%";
-        }
-      }
-
-      window.addEventListener("wheel", function (event) {
-        if (event.deltaY > 0) {
-          if (currentScreens < numberScreens) {
-            currentScreens++;
-            web.style.left = -currentScreens * 100 + "vw";
-            headTitle.style.transition = 0.2 + "s";
-            headTitle.style.top = "0%";
-          }
-        } else if (event.deltaY < 0) {
-          if (currentScreens > 0) {
-            currentScreens--;
-            web.style.left = -currentScreens * 100 + "vw";
-            headTitle.style.transition = 0.2 + "s";
-            headTitle.style.top = "0%";
-          }
-        }
-        if (currentScreens == 0) {
-          headTitle.style.transition = 0.2 + "s";
-          headTitle.style.top = "45%";
-        }
-      });
-
-      document.getElementById("homeBtn").addEventListener("click", function () {
-        currentScreens = 0;
-        web.style.left = -currentScreens * 100 + "vw";
-        updateHeadTitle();
-      });
-
-      document
-        .getElementById("aboutBtn")
-        .addEventListener("click", function () {
-          currentScreens = 1;
-          web.style.left = -currentScreens * 100 + "vw";
-          updateHeadTitle();
-        });
-
-      document
-        .getElementById("portfolioBtn")
-        .addEventListener("click", function () {
-          currentScreens = 2;
-          web.style.left = -currentScreens * 100 + "vw";
-          updateHeadTitle();
-        });
-
-      document
-        .getElementById("contactBtn")
-        .addEventListener("click", function () {
-          currentScreens = 3;
-          web.style.left = -currentScreens * 100 + "vw";
-          updateHeadTitle();
-        });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
