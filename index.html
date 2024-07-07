@@ -5,406 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dmytro Palchykov - Programmer Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/zjg6kjf.css">
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
-      #web {
-        width: 300vw;
-        height: 100vh;
-        display: flex;
-        position: absolute;
-        translate: 100vw 0;
-        z-index: 1000;
-        transition: 0.4s;
-      }
-      .scrin {
-        width: 100vw;
-        height: 100vh;
-        border: #000000;
-        background-color: #f9f5f5;
-        opacity: 0.8;
-        transition: 0.4s;
-      }
-
-      body {
-        overflow: hidden;
-        max-width: 60%;
-        max-height: 60%;
-        transition: 0.4s;
-      }
-      body {
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        display: inline-block;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        font-family: "Roboto", sans-serif;
-        background-image: url(background-img.jpg);
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-
-      #headTitle {
-        display: flex;
-        background-color:rgba(0, 0, 0, 0.5);
-        width: 100vw;
-        height: 134px;
-        padding: 10px;
-        top: 45%;
-        text-align: center;
-        position: absolute;
-        transition: 0.4s;
-        z-index: 1000;
-      }
-
-      header h1 {
-        font-family: "aviano-future", sans-serif;
-        font-weight: 700;
-        font-style: italic;
-        margin: 5px 0;
-        font-size: 74px;
-        color: rgba(255, 255, 255, 0.5);
-        text-align: center;
-        position: absolute;
-        left: 5vw;
-      }
-
-      nav ul {
-        position: absolute;
-        list-style: none;
-        padding: 40px;
-        top: 40px;
-        left: 10vw;   
-      }
-
-      nav ul li {
-        display: inline-block;
-        margin: 0 14px;
-      }
-
-      nav ul li a {
-        color:rgba(255, 255, 255, 0.5);
-        text-decoration: none;
-        font-size: 22px;
-      }
-
-      nav ul li a:hover {
-        color: rgb(86, 215, 255);
-      }
-
-      nav ul li a:active {
-        color: white;
-      }
-      nav ul li a img {
-        padding: 0px;
-        z-index: 1200;     
-       }
-      .nav-icon {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-      }
-      .menu-text {
-    display: inline-block;
-    margin-left: 10px;
-      }
-
-    @media (max-width: 768px) {
-    .menu-text {
-        display: none;
-    }
-}
-      h2 {
-        color: #ffffff;
-        text-align: center;
-        font-size: 2em;
-      }
-
-      footer p {
-        background-color: #000000;
-        top: 95vh;
-        width: 100vw;
-        height: 20px;
-        position: absolute;
-        padding: 10px;
-        text-align: center;
-        color: #ffffff;
-        opacity: 0.7;
-        z-index: 1000;
-      }
-
-      #homeBtn {
-        border-radius: 3px solid #000000;
-        position: relative;
-      }
-
-      #about {
-        background-color: rgba(0, 0, 0, 0.8);
-        border-radius: 3px solid #000000;
-        position: relative;
-      }
-
-      #portfolio {
-        background-color: rgba(0, 0, 0, 0.8);
-        border-radius: 3px solid #000000;
-        position: relative;
-      }
-
-      #contact {
-        background-color: rgba(0, 0, 0, 0.8);
-        border-radius: 3px solid #000000;
-        position: relative;
-      }
-      #contactInf{
-        position: relative;
-        left: 5vw;
-      }
-     
-      .containerAbout {
-        color: white;
-        font-size: 18px;
-        position: absolute;
-        left: 25vw;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        height: 860px;
-        overflow-y: scroll;
-      }
-      .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-         h2 {
-            text-align: left;
-            padding-left: 170px;
-            margin-bottom: 100px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .form-group input, .form-group textarea {
-            width: 20%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-group textarea {
-            height: 100px;
-        }
-        .form-group button {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .form-group button:hover {
-            background-color: #e2ece2;
-            color: #000000;
-        }
-    </style>
+    <link rel="stylesheet" href="https://use.typekit.net/zjg6kjf.css" />
+    <link rel="stylesheet" href="Style.css" />
   </head>
   <body>
     <canvas id="canvas"></canvas>
     <header id="headTitle">
+      <img id="frontEndlogo" src="Front-end-logo-color@2x.png" alt="No logo" />
       <h1>Frontend Developer</h1>
       <nav>
         <ul>
           <li>
-              <a id="homeBtn" href="#" onclick="move(0)">
-                  <img src="Home3.png" alt="Home" class="nav-icon">
-                  <span id="inf0" class="menu-text">Home</span>
-              </a>
+            <a id="homeBtn" href="#" onclick="move(0)">
+              <img src="Home3.png" alt="Home" class="nav-icon" />
+              <span id="inf0" class="menu-text">Home</span>
+            </a>
           </li>
           <li>
-              <a id="aboutBtn" href="#" onclick="move(1)">
-                  <img src="About.png" alt="About" class="nav-icon">
-                  <span id="inf1" class="menu-text">About</span>
-              </a>
+            <a id="aboutBtn" href="#" onclick="move(1)">
+              <img src="About.png" alt="About" class="nav-icon" />
+              <span id="inf1" class="menu-text">About</span>
+            </a>
           </li>
           <li>
-              <a id="portfolioBtn" href="#" onclick="move(2)">
-                  <img src="Portfolio.png" alt="Portfolio" class="nav-icon">
-                  <span id="inf2" class="menu-text">Portfolio</span>
-              </a>
+            <a id="portfolioBtn" href="#" onclick="move(2)">
+              <img src="Portfolio.png" alt="Portfolio" class="nav-icon" />
+              <span id="inf2" class="menu-text">Portfolio</span>
+            </a>
           </li>
           <li>
-              <a id="contactBtn" href="#" onclick="move(3)">
-                  <img src="Contact.png" alt="Contact" class="nav-icon">
-                  <span id="inf3" class="menu-text">Contact</span>
-              </a>
+            <a id="contactBtn" href="#" onclick="move(3)">
+              <img src="Contact.png" alt="Contact" class="nav-icon" />
+              <span id="inf3" class="menu-text">Contact</span>
+            </a>
           </li>
-      </ul>
+        </ul>
       </nav>
     </header>
     <div id="web">
       <div id="about" class="scrin">
         <div class="containerAbout">
-          <h2>Experience Overview</h2>
-          <p>
-            Over the past year, I have dedicated myself to mastering and
-            applying the core web technologies of JavaScript, HTML, and CSS. My
-            journey has involved a combination of structured learning, practical
-            application, and real-world project development, allowing me to
-            build a solid foundation in web development.
-          </p>
+          <div id="note1">
+            <h2>Experience Overview</h2>
+            <p style="line-height: 1.5">
+              Over the past year, I have dedicated myself to mastering and
+              applying the core web technologies of
+              <strong>JavaScript, HTML, and CSS.</strong> My journey has
+              involved a combination of structured learning, practical
+              application, and real-world project development, allowing me to
+              build a solid foundation in web development.
+            </p>
+          </div>
+          <div id="noteJS">
+            <h2>JavaScript</h2>
+            <ul>
+              <li>
+                <a href="#" onclick="linkAbout(1)">
+                  <span> <strong>Understanding the Fundamentals</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkAbout(2)">
+                  <span> <strong>DOM Manipulation:</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkAbout(3)">
+                  <span> <strong>Asynchronous Programming</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkAbout(4)">
+                  <span> <strong>Frameworks and Libraries</strong></span></a
+                >
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkAbout(5)">
+                  <span> <strong>Debugging and Testing</strong> </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="noteHTML">
+            <h2>HTML</h2>
+            <ul>
+              <li>
+                <a href="#" onclick="linkHTML(1)">
+                  <span> <strong>Semantic Markup</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkHTML(2)">
+                  <span> <strong>Forms and Inputs</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkHTML(3)">
+                  <span> <strong>Media Integration</strong> </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="noteCSS">
+            <h2>CSS</h2>
+            <ul>
+              <li>
+                <a href="#" onclick="linkCSS(1)">
+                  <span> <strong>Styling and Layout</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkCSS(2)">
+                  <span> <strong>Responsive Design</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkCSS(3)">
+                  <span> <strong>CSS Preprocessors</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkCSS(4)">
+                  <span> <strong>Animations and Transitions</strong> </span>
+                </a>
+              </li>
+            </ul>
+          </div>
 
-          <h2>JavaScript</h2>
-          <ul>
-            <li>
-              <strong>Understanding the Fundamentals:</strong>
-              <br /><br />
-              Developed a deep understanding of JavaScript's syntax, data types,
-              operators, and control structures. Practiced writing clean,
-              efficient, and modular code by adhering to best practices and
-              coding
-            </li>
-            <br />
-            <li>
-              <strong>DOM Manipulation:</strong> <br /><br />Gained proficiency
-              in manipulating the Document Object Model (DOM) to create dynamic
-              and interactive web pages. Utilized event listeners to handle user
-              interactions such as clicks, form submissions, and keyboard
-              inputs.
-            </li>
-            <br />
-            <li>
-              <strong>Asynchronous Programming:</strong> <br /><br />Mastered
-              asynchronous programming using callbacks, promises, and
-              async/await to handle tasks like fetching data from APIs.
-              Implemented various AJAX techniques to update web pages without
-              reloading, enhancing user experience.
-            </li>
-            <br />
-            <li>
-              <strong>Frameworks and Libraries:</strong> <br /><br />Explored
-              popular JavaScript frameworks and libraries such as React and
-              jQuery to streamline development processes. Built single-page
-              applications (SPAs) using React, incorporating state management
-              with hooks and context API.
-            </li>
-            <br />
-            <li>
-              <strong>Debugging and Testing:</strong> <br /><br />Developed
-              strong debugging skills using browser developer tools and logging
-              techniques. Applied unit testing with frameworks like Jest to
-              ensure code reliability and performance.
-            </li>
-          </ul>
-          <h2>HTML</h2>
-          <ul>
-            <li>
-              <strong>Semantic Markup:</strong> <br /><br />Emphasized the use
-              of semantic HTML to create accessible and SEO-friendly web pages.
-              Structured content logically using elements like headers, footers,
-              articles, sections, and navigation.
-            </li>
-            <br />
-            <li>
-              <strong>Forms and Inputs:</strong> <br /><br />Created complex
-              forms with various input types, implementing client-side
-              validation to enhance user input accuracy. Utilized HTML5 features
-              such as date pickers, range sliders, and required attributes for a
-              better user experience.
-            </li>
-            <br />
-            <li>
-              <strong>Media Integration:</strong> <br /><br />Embedded
-              multimedia content including images, videos, and audio, ensuring
-              proper responsiveness and accessibility. Used the
-              <code>picture</code> element and <code>srcset</code> attribute for
-              responsive images, optimizing load times for different devices.
-            </li>
-          </ul>
-
-          <h2>CSS</h2>
-          <ul>
-            <li>
-              <strong>Styling and Layout:</strong> <br /><br />Developed an eye
-              for design and aesthetics by applying various CSS properties to
-              style web pages. Mastered layout techniques using Flexbox and CSS
-              Grid to create responsive and adaptive designs.
-            </li>
-            <br />
-            <li>
-              <strong>Responsive Design:</strong> <br /><br />Implemented
-              responsive design principles using media queries to ensure web
-              pages look and function well on various devices and screen sizes.
-              Utilized relative units like percentages, ems, and rems to build
-              flexible layouts.
-            </li>
-            <br />
-            <li>
-              <strong>CSS Preprocessors:</strong> <br /><br />Gained experience
-              with CSS preprocessors such as Sass to write more maintainable and
-              modular CSS code. Leveraged features like variables, nesting, and
-              mixins to streamline the styling process.
-            </li>
-            <br />
-            <li>
-              <strong>Animations and Transitions:</strong> <br /><br />Created
-              engaging user experiences with CSS animations and transitions.
-              Applied keyframe animations and used properties like
-              <code>transform</code>, <code>transition</code>, and
-              <code>animation</code> to bring web pages to life.
-            </li>
-            <br />
-          </ul>
-
-          <h2>Project Highlights</h2>
-          <ul>
-            <li>
-              <strong>Portfolio Website:</strong> <br /><br />Designed and
-              developed a personal portfolio website showcasing my projects and
-              skills. Implemented smooth scrolling, interactive elements, and
-              responsive design to create a professional and engaging online
-              presence.
-            </li>
-            <br />
-            <li>
-              <strong>E-commerce Platform:</strong><br /><br />
-              Collaborated on the development of an e-commerce platform,
-              focusing on the front-end interface. Utilized JavaScript to
-              implement features like product filters, dynamic shopping carts,
-              and user authentication.
-            </li>
-            <br />
-            <li>
-              <strong>Blog Application:</strong> <br /><br />Built a fully
-              functional blog application with user authentication, post
-              creation, and comment features. Applied React for the front-end,
-              managing state and rendering components efficiently.
-            </li>
-          </ul>
-
-          <h2>Continuous Learning</h2>
-          <p>
-            Stayed up-to-date with the latest trends and advancements in web
-            development by following industry blogs, participating in online
-            courses, and engaging with the developer community. Actively
-            contributed to open-source projects, gaining valuable experience in
-            collaborative coding and version control with Git.
-          </p>
+          <div id="noteProject">
+            <h2>Project Highlights</h2>
+            <ul>
+              <li>
+                <a href="#" onclick="linkCSS(4)">
+                  <span> <strong>Portfolio Website</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkCSS(4)">
+                  <span> <strong>E-commerce Platform</strong> </span>
+                </a>
+              </li>
+              <br />
+              <li>
+                <a href="#" onclick="linkCSS(4)">
+                  <span> <strong>Blog Application</strong> </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="noteLearning">
+            <h2>Continuous Learning</h2>
+            <p style="line-height: 1.5">
+              Stayed up-to-date with the latest trends and advancements in web
+              development by following industry blogs, participating in online
+              courses, and engaging with the developer community. Actively
+              contributed to open-source projects, gaining valuable experience
+              in collaborative coding and version control with Git.
+            </p>
+          </div>
         </div>
       </div>
       <div id="portfolio" class="scrin">
@@ -413,27 +181,26 @@
       <div id="contact" class="scrin">
         <h2>Оставьте свои контактные данные</h2>
         <form action="#" method="post" id="contactInf">
-            <div class="form-group">
-                <label for="firstname" style="color: white">Имя:</label>
-                <input type="text" id="firstname" name="firstname" required>
-            </div>
-            <div class="form-group">
-                <label for="lastname" style="color: white">Фамилия:</label>
-                <input type="text" id="lastname" name="lastname" required>
-            </div>
-            <div class="form-group">
-                <label for="phone" style="color: white">Номер телефона:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="comment" style="color: white">Комментарий:</label>
-                <textarea id="comment" name="comment"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit">Отправить</button>
-            </div>
+          <div class="form-group">
+            <label for="firstname" style="color: white">Имя:</label>
+            <input type="text" id="firstname" name="firstname" required />
+          </div>
+          <div class="form-group">
+            <label for="lastname" style="color: white">Фамилия:</label>
+            <input type="text" id="lastname" name="lastname" required />
+          </div>
+          <div class="form-group">
+            <label for="phone" style="color: white">Номер телефона:</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="comment" style="color: white">Комментарий:</label>
+            <textarea id="comment" name="comment"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit">Отправить</button>
+          </div>
         </form>
-    </div>
       </div>
     </div>
     <footer>
