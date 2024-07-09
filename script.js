@@ -65,7 +65,7 @@ document.getElementById("contactBtn").addEventListener("click", function () {
   web.style.left = -currentScreens * 100 + "vw";
   updateHeadTitle();
 });
-
+//
 // создаем изменение размеров нашей области при наведении мыши
 let targetMouse = document.getElementById("note1");
 let targetMouse1 = document.getElementById("noteLearning");
