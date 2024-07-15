@@ -159,6 +159,26 @@ function linkProj(numProj) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", (event) => {
+  // Координаты вашего местоположения (замените на ваши координаты)
+  var lat = 33.000185; // Широта
+  var lon = -96.641757; // Долгота
+
+  // Создание карты
+  var map = L.map("map").setView([lat, lon], 13);
+
+  // Добавление слоя карты
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "© OpenStreetMap contributors",
+  }).addTo(map);
+
+  // Добавление маркера на карту
+  var marker = L.marker([lat, lon])
+    .addTo(map)
+    .bindPopup("<b>3500 Northstar Rd, Richardson, Texas 75082</b>")
+    .openPopup();
+});
+
 // Создаем обращение к ссылке после нажатия на которую будет изменяться текст контент
 
 // let textInf = 0;
