@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dmytro Palchykov - Programmer Portfolio</title>
@@ -8,37 +8,64 @@
     <link rel="stylesheet" href="https://use.typekit.net/zjg6kjf.css" />
     <link rel="stylesheet" href="Style.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  </head>
+    <script src="jQuery/jQuery.js" defer></script>
+</head>
   <body>
     <canvas id="canvas"></canvas>
     <header id="headTitle">
-      <img id="frontEndlogo" src="Front-end-logo-color@2x.png" alt="No logo" />
+      <div class="header-side"></div>
+      <!--<img id="frontEndlogo" src="img\Front-end-logo-color@2x.png" alt="No logo" />-->
       <h1>Frontend Developer</h1>
       <nav>
         <ul>
+            <li>
+              
+                  <div class="submenu-circle">&#10094;basic&#10095;</div>
+                  <div class="submenu-circle">&#10094;table&#10095;</div>
+                  <div class="submenu-circle">&#10094;list&#10095;</div>
+                  <div class="submenu-circle"></div>
+                  <div class="arc"></div>
+                  <div class="cont-menu"> </div>
+                  <a id="homeBtn" href="#" onclick="move(0)">
+                    <img src="img\icHTML2.png" alt="Home" class="nav-icon" />
+                  </a>
+                
+            </li>
           <li>
-            <a id="homeBtn" href="#" onclick="move(0)">
-              <img src="Home.png" alt="Home" class="nav-icon" />
-              <span id="inf0" class="menu-text">Home</span>
-            </a>
+            
+              <div class="submenu-circle">&#10100;selectors&#10101;</div>
+              <div class="submenu-circle">&#10100;styles&#10101;</div>
+              <div class="submenu-circle">&#10100;layout&#10101;</div>
+              <div class="submenu-circle"></div>
+              <div class="arc"></div>
+              <div class="cont-menu"> </div>
+              <a id="aboutBtn" href="#" onclick="move(1)">
+                  <img src="img\icCSS2.png" alt="About" class="nav-icon" />
+              </a>
           </li>
           <li>
-            <a id="aboutBtn" href="#" onclick="move(1)">
-              <img src="Info.png" alt="About" class="nav-icon" />
-              <span id="inf1" class="menu-text">About</span>
-            </a>
+              
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="arc"></div>
+              <div class="cont-menu"> </div>
+              <a id="portfolioBtn" href="#" onclick="move(2)">
+                  <img src="img\icJS2.png" alt="Portfolio" class="nav-icon" />
+              </a>
           </li>
           <li>
-            <a id="portfolioBtn" href="#" onclick="move(2)">
-              <img src="Portfolio.png" alt="Portfolio" class="nav-icon" />
-              <span id="inf2" class="menu-text">Portfolio</span>
-            </a>
-          </li>
-          <li>
-            <a id="contactBtn" href="#" onclick="move(3)">
-              <img src="Contact.png" alt="Contact" class="nav-icon" />
-              <span id="inf3" class="menu-text">Contact</span>
-            </a>
+              
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="arc"></div>
+              <div class="cont-menu"> </div>
+              <a id="contactBtn" href="#" onclick="move(3)">
+                  <img src="img\icFE2.png" alt="Contact" class="nav-icon" />
+              </a>
           </li>
         </ul>
       </nav>
