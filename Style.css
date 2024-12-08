@@ -30,29 +30,29 @@
 }
 
 body {
-  overflow: hidden;
-  max-width: 60%;
-  max-height: 60%;
-  transition: 0.4s;
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  display: inline-block;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  background-image: url(background-img.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    overflow: hidden;
+    max-width: 60%;
+    max-height: 60%;
+    transition: 0.4s;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-image: url("img/background-img.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #headTitle {
   display: flex;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
-  height: 134px;
+  height: 374px;
   padding: 10px;
   top: 45%;
   text-align: center;
@@ -116,14 +116,133 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  margin: 0 14px;
+  margin: 0 0 0 150px;
+
+}
+.arc {
+    position: absolute;
+    width: 133px;
+    height: 213px;
+    border: 10px solid #2ecc71;
+    border-color: transparent #2ecc71 transparent transparent;
+    border-radius: 50%;
+    transform: rotate(10deg);
 }
 
-nav ul li a {
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-  font-size: 22px;
+/* Стартовые настройки подменю */
+
+.submenu-circle {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    border: 5px solid #ee0000;
+    border-radius: 25px;
+    overflow: hidden;
+    background-position: center;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    text-align: center;
+    line-height: 50px;
+    font-size: 25px;
+
 }
+    .submenu-circle:nth-child(1) {
+        transform: translate(110px,20px);
+    }
+    .submenu-circle:nth-child(2) {
+        transform: translate(120px,60px);
+    }
+    .submenu-circle:nth-child(3) {
+        transform: translate(110px,100px);
+    }
+    .submenu-circle:nth-child(4) {
+        transform: translate(100px,140px);
+    }
+    nav ul li a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        font-size: 22px;
+    }
+
+/* Устанавливаем цвета фона подменю */
+
+li:nth-child(1) div.submenu-circle {
+    background-color: rgba(224,46,0,0.9);
+}
+li:nth-child(2) div.submenu-circle {
+    background-color: rgba(0,110,186,0.9);
+}
+li:nth-child(3) div.submenu-circle {
+    background-color: rgba(228,189,0,0.9);
+}
+li:nth-child(4) div.submenu-circle {
+    background-color: rgba(200,200,0,0.9);
+}
+
+/* Устанавливаем изображения подменю */
+
+li:nth-child(1) div.submenu-circle:nth-child(1) {
+   
+}
+li:nth-child(1) div.submenu-circle:nth-child(2) {
+    
+}
+li:nth-child(1) div.submenu-circle:nth-child(3) {
+    
+}
+li:nth-child(1) div.submenu-circle:nth-child(4) {
+    background-image: url("img/submenu/multipoint.png");
+    background-size: 45px;
+}
+
+li:nth-child(2) div.submenu-circle:nth-child(1) {
+    font-size: 20px;
+}
+li:nth-child(2) div.submenu-circle:nth-child(2) {
+
+}
+li:nth-child(2) div.submenu-circle:nth-child(3) {
+
+}
+li:nth-child(2) div.submenu-circle:nth-child(4) {
+    background-image: url("img/submenu/multipoint.png");
+    background-size: 45px;
+}
+
+li:nth-child(3) div.submenu-circle:nth-child(1) {
+    background-image: url("img/submenu/nodejs.svg");
+}
+
+li:nth-child(3) div.submenu-circle:nth-child(2) {
+    background-image: url("img/submenu/react.svg");
+}
+
+li:nth-child(3) div.submenu-circle:nth-child(3) {
+    background-image: url("img/submenu/jquery.png");
+}
+
+li:nth-child(3) div.submenu-circle:nth-child(4) {
+    background-image: url("img/submenu/multipoint.png");
+    background-size: 45px;
+}
+
+li:nth-child(4) div.submenu-circle:nth-child(1) {
+    background-image: url("img/submenu/docker.svg");
+}
+
+li:nth-child(4) div.submenu-circle:nth-child(2) {
+    background-image: url("img/submenu/sql.svg");
+}
+
+li:nth-child(4) div.submenu-circle:nth-child(3) {
+    background-image: url("img/submenu/github.svg");
+}
+
+li:nth-child(4) div.submenu-circle:nth-child(4) {
+    background-image: url("img/submenu/multipoint.png");
+    background-size: 45px;
+}
+
 
 @media (max-width: 1368px) {
   nav ul li a {
@@ -146,9 +265,8 @@ nav ul li a img {
 
 .nav-icon {
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  padding-left: 130px;
+  width: 170px;
+  padding-top:30px;
 }
 
 @media (max-width: 1368px) {
@@ -175,7 +293,6 @@ h2 /*заголовок для контактов*/ {
   padding-left: 5%;
   font-size: 2em;
 }
-
 footer p {
   background-color: #000000;
   top: 95vh;
