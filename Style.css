@@ -50,9 +50,9 @@ body {
 
 #headTitle {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.62);
   width: 100vw;
-  height: 374px;
+  height: 400px;
   padding: 10px;
   top: 45%;
   text-align: center;
@@ -65,12 +65,21 @@ header h1 {
   font-family: "aviano-future", sans-serif;
   font-weight: 700;
   font-style: italic;
-  margin: 5px 0;
+  margin: 5px 0 0 160px;
   font-size: 74px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
   position: fixed;
   left: 12%;
+}
+
+header div.header-side {
+  height: 337px;
+  width: 147px;
+  border: 4px solid #c9d400;
+  border-color: #c9d400 #c9d400 transparent transparent;
+  transform: rotate(45deg);
+  margin:20px;  
 }
 
 @media (max-width: 1368px) {
@@ -110,7 +119,7 @@ nav ul {
   position: absolute;
   display: flex;
   list-style: none;
-  padding: 40px;
+  padding: 40px 40px 40px 100px ;
   top: 40px;
   left: 10vw;
 }
@@ -118,7 +127,7 @@ nav ul {
 nav ul li {
   position: relative;
   display: flex;
-  margin: 0 0 0 150px;
+  margin: 0 30px 0 150px;
   cursor: pointer;
 
 }
@@ -147,8 +156,16 @@ nav ul li {
   transition: 0.3s ease;
 }
 li:nth-child(1) div.arc {
-  border: 4px solid #982600;
-  border-color: transparent #982600 transparent transparent;
+  border-color: transparent rgba(154, 57, 25, 0.6) transparent transparent;
+}
+li:nth-child(2) div.arc {
+  border-color: transparent rgba(67, 73, 191, 0.6) transparent transparent;
+}
+li:nth-child(3) div.arc {
+  border-color: transparent rgba(203, 180, 63, 0.6) transparent transparent;
+}
+li:nth-child(4) div.arc {
+  border-color: transparent rgba(122, 190, 59, 0.6) transparent transparent;
 }
 
 .submenu-circle {
@@ -167,27 +184,28 @@ li:nth-child(1) div.arc {
     line-height: 50px;
     font-size: 25px;
     cursor: pointer;
-    opacity: 0.1;
+    opacity: 0;
     transition: 0.3s ease;
 }
 
     .submenu-circle:nth-child(1) {
-      border: 3px solid #c31400;
+
     }
     .submenu-circle:nth-child(2) {
-      border: 3px solid #982600;
+      
     }
     .submenu-circle:nth-child(3) {
-      border: 3px solid #982600;
+      
     }
     .submenu-circle:nth-child(4) {
-      border: 3px solid #982600;
+      
     }
 
 
     nav ul li a {
       align-items:flex-start;
       display: block;
+      z-index: 2100;
       overflow: hidden;
       height: 260px;
       transition: 0.3s ease;
@@ -197,15 +215,19 @@ li:nth-child(1) div.arc {
 
 li:nth-child(1) div.submenu-circle {
     background-color: rgba(224,46,0,0.9);
+    border: 3px solid #c31400;
 }
 li:nth-child(2) div.submenu-circle {
     background-color: rgba(0,110,186,0.9);
+    border: 3px solid rgb(0, 11, 190);
 }
 li:nth-child(3) div.submenu-circle {
     background-color: rgba(228,189,0,0.9);
+    border: 3px solid rgb(137, 112, 11);
 }
 li:nth-child(4) div.submenu-circle {
-    background-color: rgba(200,200,0,0.9);
+    background-color: rgba(167, 200, 0, 0.9);
+    border: 3px solid rgb(65, 101, 24);
 }
 
 /* Устанавливаем изображения подменю */

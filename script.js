@@ -49,27 +49,6 @@ menu.forEach((menuItem, index) => {
   });
 });
 
-////////////////////////////////////////////////////////////////
-
-
-$(document).ready(function () {
-  $('.trigger').hover(
-      function () {
-          $('.target').stop().animate({
-              opacity: 1, // Плавное появление
-              left: "+=70px", // Перемещение вправо
-              top: "+=30px"  // Перемещение вниз
-          }, 500); // Длительность анимации
-      },
-      function () {
-          $('.target').stop().animate({
-              opacity: 0, // Плавное исчезновение
-              left: "-=70px", // Возврат на исходное место
-              top: "-=30px"  // Возврат на исходное место
-          }, 500); // Длительность анимации
-      }
-  );
-});
 
 // Функция для скринов горизонтальной развертки
 function move(num) {
@@ -87,7 +66,8 @@ function updateHeadTitle() {
   }
 }
 // добавили скрины по горизонтали (прокрутка колесом)
-window.addEventListener("wheel", function (event) {
+window.addEventListener("wheel", function (event) { 
+  console.log("ruuf");
   if (event.deltaY > 0) {
     if (currentScreens < numberScreens) {
       currentScreens++;
