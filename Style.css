@@ -76,8 +76,8 @@ header h1 {
 header div.header-side {
   height: 337px;
   width: 147px;
-  border: 4px solid #c9d400;
-  border-color: #c9d400 #c9d400 transparent transparent;
+  border: 4px solid #ffffff;
+  border-color: #ffffff #ababab transparent transparent;
   transform: rotate(45deg);
   margin:20px;  
 }
