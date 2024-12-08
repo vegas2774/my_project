@@ -43,8 +43,8 @@ body {
     align-items: center;
     background-image: url("img/background-img.jpg");
     background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+    background-size: 110%;;
+    background-position: 0% 50%;
     background-repeat: no-repeat;
 }
 
@@ -108,6 +108,7 @@ header h1 {
 
 nav ul {
   position: absolute;
+  display: flex;
   list-style: none;
   padding: 40px;
   top: 40px;
@@ -115,27 +116,48 @@ nav ul {
 }
 
 nav ul li {
-  display: inline-block;
+  position: relative;
+  display: flex;
   margin: 0 0 0 150px;
+  cursor: pointer;
 
 }
-.arc {
-    position: absolute;
-    width: 133px;
-    height: 213px;
-    border: 10px solid #2ecc71;
-    border-color: transparent #2ecc71 transparent transparent;
-    border-radius: 50%;
-    transform: rotate(10deg);
-}
+
 
 /* Стартовые настройки подменю */
+.cont-menu {
+  position: absolute;
+  z-index: 100;
+  width: 300px;
+  height: 300px;
+  /*border: 5px solid red;*/
+
+}
+
+.arc {
+  position: absolute;
+  width: 133px;
+  height: 213px;
+  z-index: 700;
+  border: 4px solid #9a9a9a;
+  border-color: transparent #9a9a9a transparent transparent;
+  border-radius: 50%;
+  transform: rotate(10deg);
+  opacity: 0.1;
+  transition: 0.3s ease;
+}
+li:nth-child(1) div.arc {
+  border: 4px solid #982600;
+  border-color: transparent #982600 transparent transparent;
+}
 
 .submenu-circle {
     position: absolute;
+    top: calc(50% - 25px); 
+    left: calc(50% - 50px);
     width: 100px;
     height: 50px;
-    border: 5px solid #ee0000;
+    z-index: 2000;
     border-radius: 25px;
     overflow: hidden;
     background-position: center;
@@ -144,24 +166,31 @@ nav ul li {
     text-align: center;
     line-height: 50px;
     font-size: 25px;
-
+    cursor: pointer;
+    opacity: 0.1;
+    transition: 0.3s ease;
 }
+
     .submenu-circle:nth-child(1) {
-        transform: translate(110px,20px);
+      border: 3px solid #c31400;
     }
     .submenu-circle:nth-child(2) {
-        transform: translate(120px,60px);
+      border: 3px solid #982600;
     }
     .submenu-circle:nth-child(3) {
-        transform: translate(110px,100px);
+      border: 3px solid #982600;
     }
     .submenu-circle:nth-child(4) {
-        transform: translate(100px,140px);
+      border: 3px solid #982600;
     }
+
+
     nav ul li a {
-        color: rgba(255, 255, 255, 0.5);
-        text-decoration: none;
-        font-size: 22px;
+      align-items:flex-start;
+      display: block;
+      overflow: hidden;
+      height: 260px;
+      transition: 0.3s ease;
     }
 
 /* Устанавливаем цвета фона подменю */
@@ -265,8 +294,10 @@ nav ul li a img {
 
 .nav-icon {
   display: inline-block;
+  z-index: 1300;
   width: 170px;
   padding-top:30px;
+  cursor: pointer;
 }
 
 @media (max-width: 1368px) {

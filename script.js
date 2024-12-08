@@ -4,6 +4,72 @@ let web = document.getElementById("web");
 let currentScreens = 0;
 let headTitle = document.getElementById("headTitle");
 let nav = document.getElementById("inf1");
+let body = document.getElementsByTagName("body")[0];
+
+let arc = Array.from(document.getElementsByClassName("arc"));
+let menu = Array.from(document.querySelectorAll('nav ul li'));
+let ancorMenu = Array.from(document.querySelectorAll('nav ul li a'));
+console.log(menu);
+let protoSubmenuCircle = Array.from(document.getElementsByClassName("submenu-circle"));
+let submenuCircle = [];   for (let i = 0; i <4;i++) submenuCircle[i] = [protoSubmenuCircle[i*4],protoSubmenuCircle[i*4+1], protoSubmenuCircle[i*4+2],protoSubmenuCircle[i*4+3]];
+
+        //const bodyBcgSize = parseFloat(window.getComputedStyle(body).backgroundSize);
+
+// Анимации для выплывания подмкеню при наведении на элементы меню
+
+menu.forEach((menuItem, index) => {
+  menuItem.addEventListener("mouseenter", () => {
+    arc[index].style.width = "171px";
+    arc[index].style.height = "310px";
+    arc[index].style.transform = `rotate(${28}deg)`;
+    arc[index].style.opacity = "1";
+    
+    ancorMenu[index].style.height = "220px";
+
+      submenuCircle[index].forEach((submenuItem, subIndex) => {
+          submenuItem.style.opacity = "1";
+          submenuItem.style.transform = `translate(${170 - subIndex*subIndex*10 }px, ${subIndex*63 - 10}px)`;
+      });
+  });
+
+  menuItem.addEventListener("mouseleave", () => {
+    setTimeout(() => {    
+      arc[index].style.width = "133px";
+      arc[index].style.height = "213px";
+      arc[index].style.transform = `rotate(${10}deg)`;
+      arc[index].style.opacity = "0";
+  
+      ancorMenu[index].style.height = "260px";
+
+      submenuCircle[index].forEach((submenuItem) => {
+      submenuItem.style.opacity = "0";
+      submenuItem.style.transform = "translate(0, 0)";
+    });} ,150);
+
+  });
+});
+
+////////////////////////////////////////////////////////////////
+
+
+$(document).ready(function () {
+  $('.trigger').hover(
+      function () {
+          $('.target').stop().animate({
+              opacity: 1, // Плавное появление
+              left: "+=70px", // Перемещение вправо
+              top: "+=30px"  // Перемещение вниз
+          }, 500); // Длительность анимации
+      },
+      function () {
+          $('.target').stop().animate({
+              opacity: 0, // Плавное исчезновение
+              left: "-=70px", // Возврат на исходное место
+              top: "-=30px"  // Возврат на исходное место
+          }, 500); // Длительность анимации
+      }
+  );
+});
 
 // Функция для скринов горизонтальной развертки
 function move(num) {
@@ -28,6 +94,9 @@ window.addEventListener("wheel", function (event) {
       web.style.left = -currentScreens * 100 + "vw";
       headTitle.style.transition = 0.2 + "s";
       headTitle.style.top = "0%";
+      body.style.backgroundPosition =  100 * currentScreens / (numberScreens) + "%";
+      //console.log(100 * currentScreens / (numberScreens) + "%");
+
     }
   } else if (event.deltaY < 0) {
     if (currentScreens > 0) {
@@ -35,6 +104,7 @@ window.addEventListener("wheel", function (event) {
       web.style.left = -currentScreens * 100 + "vw";
       headTitle.style.transition = 0.2 + "s";
       headTitle.style.top = "0%";
+      body.style.backgroundPosition = 100 * currentScreens / (numberScreens) + "%";
     }
   }
   if (currentScreens == 0) {
