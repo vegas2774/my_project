@@ -106,25 +106,25 @@ window.addEventListener("wheel", function (event) {
 
 //прокрутка скринов по горизонтали (при помощи нажатия кнопки на главной панели)
 document.getElementById("homeBtn").addEventListener("click", function () {
-  currentScreens = 0;
-  web.style.left = -currentScreens * 100 + "vw";
-  updateHeadTitle();
-});
-
-document.getElementById("aboutBtn").addEventListener("click", function () {
   currentScreens = 1;
   web.style.left = -currentScreens * 100 + "vw";
   updateHeadTitle();
 });
 
-document.getElementById("portfolioBtn").addEventListener("click", function () {
+document.getElementById("aboutBtn").addEventListener("click", function () {
   currentScreens = 2;
   web.style.left = -currentScreens * 100 + "vw";
   updateHeadTitle();
 });
 
-document.getElementById("contactBtn").addEventListener("click", function () {
+document.getElementById("portfolioBtn").addEventListener("click", function () {
   currentScreens = 3;
+  web.style.left = -currentScreens * 100 + "vw";
+  updateHeadTitle();
+});
+
+document.getElementById("contactBtn").addEventListener("click", function () {
+  currentScreens = 4;
   web.style.left = -currentScreens * 100 + "vw";
   updateHeadTitle();
 });
@@ -194,23 +194,3 @@ function linkProj(numProj) {
     isShowProj = false;
   }
 }
-//Map
-document.addEventListener("DOMContentLoaded", (event) => {
-  // Координаты вашего местоположения (замените на ваши координаты)
-  var lat = 33.000185; // Широта
-  var lon = -96.641757; // Долгота
-
-  // Создание карты
-  var map = L.map("map").setView([lat, lon], 13);
-
-  // Добавление слоя карты
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "© OpenStreetMap contributors",
-  }).addTo(map);
-
-  // Добавление маркера на карту
-  var marker = L.marker([lat, lon])
-    .addTo(map)
-    .bindPopup("<b>3500 Northstar Rd, Richardson, Texas 75082</b>")
-    .openPopup();
-});
