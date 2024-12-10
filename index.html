@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dmytro Palchykov - Programmer Portfolio</title>
@@ -9,104 +9,67 @@
     <link rel="stylesheet" href="Style.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="jQuery/jQuery.js" defer></script>
-</head>
+  </head>
   <body>
     <canvas id="canvas"></canvas>
     <header id="headTitle">
       <div class="header-side"></div>
+      <a id="homeBtn" href="#" onclick="move(0)">
+        <img src="Home.png" id="imgHome" alt="no img" />
+      </a>
       <!--<img id="frontEndlogo" src="img\Front-end-logo-color@2x.png" alt="No logo" />-->
       <h1>Frontend Developer</h1>
       <nav>
         <ul>
-            <li>
-              
-                  <div class="submenu-circle">&#10094;basic&#10095;</div>
-                  <div class="submenu-circle">&#10094;table&#10095;</div>
-                  <div class="submenu-circle">&#10094;list&#10095;</div>
-                  <div class="submenu-circle"></div>
-                  <div class="arc"></div>
-                  <div class="cont-menu"> </div>
-                  <a id="homeBtn" href="#" onclick="move(0)">
-                    <img src="img\icHTML2.png" alt="Home" class="nav-icon" />
-                  </a>
-                
-            </li>
           <li>
-            
-              <div class="submenu-circle">&#10100;selectors&#10101;</div>
-              <div class="submenu-circle">&#10100;styles&#10101;</div>
-              <div class="submenu-circle">&#10100;layout&#10101;</div>
-              <div class="submenu-circle"></div>
-              <div class="arc"></div>
-              <div class="cont-menu"> </div>
-              <a id="aboutBtn" href="#" onclick="move(1)">
-                  <img src="img\icCSS2.png" alt="About" class="nav-icon" />
-              </a>
+            <div class="submenu-circle">&#10094;basic&#10095;</div>
+            <div class="submenu-circle">&#10094;table&#10095;</div>
+            <div class="submenu-circle">&#10094;list&#10095;</div>
+            <div class="submenu-circle"></div>
+            <div class="arc"></div>
+            <div class="cont-menu"></div>
+            <a id="htmlBtn" href="#" onclick="move(1)">
+              <img src="img\icHTML2.png" alt="Home" class="nav-icon" />
+            </a>
           </li>
           <li>
-              
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="arc"></div>
-              <div class="cont-menu"> </div>
-              <a id="portfolioBtn" href="#" onclick="move(2)">
-                  <img src="img\icJS2.png" alt="Portfolio" class="nav-icon" />
-              </a>
+            <div class="submenu-circle">&#10100;selectors&#10101;</div>
+            <div class="submenu-circle">&#10100;styles&#10101;</div>
+            <div class="submenu-circle">&#10100;layout&#10101;</div>
+            <div class="submenu-circle"></div>
+            <div class="arc"></div>
+            <div class="cont-menu"></div>
+            <a id="cssBtn" href="#" onclick="move(2)">
+              <img src="img\icCSS2.png" alt="About" class="nav-icon" />
+            </a>
           </li>
           <li>
-              
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="arc"></div>
-              <div class="cont-menu"> </div>
-              <a id="contactBtn" href="#" onclick="move(3)">
-                  <img src="img\icFE2.png" alt="Contact" class="nav-icon" />
-              </a>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="arc"></div>
+            <div class="cont-menu"></div>
+            <a id="jsBtn" href="#" onclick="move(3)">
+              <img src="img\icJS2.png" alt="Portfolio" class="nav-icon" />
+            </a>
+          </li>
+          <li>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="arc"></div>
+            <div class="cont-menu"></div>
+            <a id="otherBtn" href="#" onclick="move(4)">
+              <img src="img\icFE2.png" alt="Contact" class="nav-icon" />
+            </a>
           </li>
         </ul>
       </nav>
     </header>
     <div id="web">
-      <div id="about" class="scrin">
-        <!-- добавление горизонтальных скринов и кнопок для прокрутки -->
-        <!-- <div class="webVertical">
-          <div class="screenVertical" id="screen2" href="#" onclick="move(2)">
-            Screen 1
-          </div>
-          <div class="screenVertical" id="screen3" href="#" onclick="move(3)">
-            Screen 2
-          </div>
-          <div class="screenVertical" id="screen4" href="#" onclick="move(4)">
-            Screen 3
-          </div>
-          <ul>
-            <li>
-              <a href="#" id="upButton">
-                <img
-                  class="scrollBtnUp"
-                  src="btn1.png"
-                  alt="no img"
-                  style="width: 50px; height: 50px"
-                />
-                Up
-              </a>
-              <a href="#" id="downButton">
-                <img
-                  class="scrollBtnDown"
-                  src="btn2.png"
-                  alt="no img"
-                  style="width: 50px; height: 50px"
-                />
-                Down
-              </a>
-            </li>
-          </ul>
-        </div> -->
-        <!-- конец этого скрипта -->
+      <div id="html" class="scrin">
         <div class="containerAbout">
           <div class="explanationJS" onclick="linkJS(0) ">
             <strong>Understanding the Fundamentals:</strong>
@@ -333,7 +296,7 @@
           </div>
           <div id="noteLearning">
             <h2>Continuous Learning</h2>
-            <p style="line-height: 1.5">
+            <p 100px; style="line-height: 1.5">
               Stayed up-to-date with the latest trends and advancements in web
               development by following industry blogs, participating in online
               courses, and engaging with the developer community. Actively
@@ -343,13 +306,11 @@
           </div>
         </div>
       </div>
-      <div id="portfolio" class="scrin">
+      <div id="css" class="scrin">
         <p></p>
       </div>
-      <div id="contact" class="scrin"></div> 
+      <div id="js" class="scrin"></div>
       <div id="other" class="scrin"></div>
-          </div>
-      </div>
     </div>
     <footer>
       <p>&copy; 2024 All rights reserved.</p>

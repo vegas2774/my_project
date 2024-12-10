@@ -153,16 +153,16 @@ nav ul li {
   opacity: 0.1;
   transition: 0.3s ease;
 }
-li:nth-child(1) div.arc {
+li:nth-child(2) div.arc {
   border-color: transparent rgba(154, 57, 25, 0.6) transparent transparent;
 }
-li:nth-child(2) div.arc {
+li:nth-child(3) div.arc {
   border-color: transparent rgba(67, 73, 191, 0.6) transparent transparent;
 }
-li:nth-child(3) div.arc {
+li:nth-child(4) div.arc {
   border-color: transparent rgba(203, 180, 63, 0.6) transparent transparent;
 }
-li:nth-child(4) div.arc {
+li:nth-child(5) div.arc {
   border-color: transparent rgba(122, 190, 59, 0.6) transparent transparent;
 }
 
@@ -188,7 +188,6 @@ li:nth-child(4) div.arc {
 
 nav ul li a {
   align-items: flex-start;
-  display: block;
   z-index: 2100;
   overflow: hidden;
   height: 260px;
@@ -256,7 +255,7 @@ li:nth-child(3) div.submenu-circle:nth-child(4) {
   background-size: 45px;
 }
 
-li:nth-child(4) div.submenu-circle:nth-child(1) {
+li:nth-child(45) div.submenu-circle:nth-child(1) {
   background-image: url("img/submenu/docker.svg");
 }
 
@@ -340,19 +339,21 @@ footer p {
 #homeBtn {
   border-radius: 3px solid #000000;
   position: relative;
+  display: none;
 }
 
-/* .scrollBtnUp.downButton {
+#imgHome {
   width: 50px;
   height: 50px;
-  position: relative;
-  background-color: aliceblue;
-  margin-top: 50%;
-} */
+}
+nav ul a {
+  top: 550px;
+  left: 300px;
+}
 
-#about,
-#portfolio,
-#contact,
+#html,
+#css,
+#js,
 #other {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 3px solid #000000;
@@ -380,7 +381,7 @@ footer p {
   }
 }
 
-.contact-form {
+/* .contact-form {
   display: inline-block;
   position: relative;
   max-width: 20%;
@@ -440,7 +441,7 @@ footer p {
     width: 50%;
     font-size: 12px;
   }
-}
+} */
 
 /* Разбивка текстового контента на блоки (заметки) */
 #note1,
