@@ -2,13 +2,26 @@ let screens = Array.from(document.getElementsByClassName("scrin"));
 let numberScreens = screens.length;
 let web = document.getElementById("web");
 let currentScreens = 0;
+let homeBtn = document.getElementById("homeBtn");
 let headTitle = document.getElementById("headTitle");
 let nav = document.getElementById("inf1");
 let body = document.getElementsByTagName("body")[0];
+let htmlBth = document.getElementById("htmlBtn");
+let cssBth = document.getElementById("cssBtn");
+let jsBth = document.getElementById("jsBtn");
+let otherBth = document.getElementById("otherBtn");
+const visibilityStates = [
+  ["flex", "flex", "flex", "flex"],
+  ["none", "flex", "flex", "flex"],
+  ["flex", "none", "flex", "flex"],
+  ["flex", "flex", "none", "flex"],
+  ["flex", "flex", "flex", "none"],
+];
 
 let arc = Array.from(document.getElementsByClassName("arc"));
 let menu = Array.from(document.querySelectorAll("nav ul li"));
 let ancorMenu = Array.from(document.querySelectorAll("nav ul li a"));
+console.log(menu);
 let protoSubmenuCircle = Array.from(
   document.getElementsByClassName("submenu-circle")
 );
@@ -20,11 +33,7 @@ for (let i = 0; i < 4; i++)
     protoSubmenuCircle[i * 4 + 2],
     protoSubmenuCircle[i * 4 + 3],
   ];
-let headerSide = document.getElementsByClassName("header-side")[0];
-let homeIcon = document.querySelector("div.cont-home-icon");
-let searchPanel = document.getElementById("search");
-let searchInput = document.getElementById("search-input");
-let ulSearchList = document.getElementById("search-list");
+
 //const bodyBcgSize = parseFloat(window.getComputedStyle(body).backgroundSize);
 
 // Анимации для выплывания подмкеню при наведении на элементы меню
@@ -63,17 +72,25 @@ menu.forEach((menuItem, index) => {
   });
 });
 
-//Анимация выпадания меню при свернутом header
-
-homeIcon.addEventListener("mouseenter", () => {
-  homeIcon.style.background = "linear-gradient(0deg, rgba(255,255,255,0.22) 64%, rgba(218,37,1,0) 83%)";
-  homeIcon.style.height = "460px";
+// переход по всплывающему сабМеню
+submenuCircle.forEach((submenuGroup, screenIndex) => {
+  submenuGroup.forEach((submenuItem) => {
+    submenuItem.addEventListener("click", () => {
+      currentScreens = screenIndex + 1; // Устанавливаем экран на основе индекса группы
+      web.style.left = -currentScreens * 100 + "vw";
+      web.style.transition = "0.4s";
+      updateHeadTitle();
+      homeBtn.style.display = "block"; // Показываем кнопку "домой", если экран не первый
+      if (currentScreens >= 0 && currentScreens <= 4) {
+        menu.forEach((menuItem, index) => {
+          menuItem.style.display = visibilityStates[currentScreens][index];
+          headTitle.style.fontSize = 32 + "px";
+        });
+      }
+    });
+  });
 });
 
-homeIcon.addEventListener("mouseleave", () => {
-  setTimeout(() => {homeIcon.style.background = "rgba(0, 0, 0, 0)";}, 600);
-  homeIcon.style.height = "75px";
-});
 // Функция для скринов горизонтальной развертки
 function move(num) {
   currentScreens = num;
@@ -83,26 +100,21 @@ function move(num) {
 
 function updateHeadTitle() {
   if (currentScreens === 0) {
-    headTitle.style.height = "400px";
-    headerSide.style.left = "0px";
     headTitle.style.top = "45%";
-    homeIcon.style.top = "-170px";
-    searchPanel.style.top = "-220px";
+    headTitle.style.transition = "0.2s";
   } else {
-    headTitle.style.height = "90px";
-    headerSide.style.left = "-510px";
-    homeIcon.style.top = "20px";
     headTitle.style.top = "0%";
-    searchPanel.style.top = "20px";
   }
 }
 // добавили скрины по горизонтали (прокрутка колесом)
 window.addEventListener("wheel", function (event) {
+  console.log("ruuf");
   if (event.deltaY > 0) {
     if (currentScreens < numberScreens) {
       currentScreens++;
       web.style.left = -currentScreens * 100 + "vw";
-      updateHeadTitle();
+      headTitle.style.transition = 0.2 + "s";
+      headTitle.style.top = "0%";
       body.style.backgroundPosition =
         (100 * currentScreens) / numberScreens + "%";
       //console.log(100 * currentScreens / (numberScreens) + "%");
@@ -111,45 +123,49 @@ window.addEventListener("wheel", function (event) {
     if (currentScreens > 0) {
       currentScreens--;
       web.style.left = -currentScreens * 100 + "vw";
-      updateHeadTitle();
+      headTitle.style.transition = 0.2 + "s";
+      headTitle.style.top = "0%";
       body.style.backgroundPosition =
         (100 * currentScreens) / numberScreens + "%";
     }
   }
   if (currentScreens == 0) {
-    updateHeadTitle();
+    headTitle.style.transition = 0.2 + "s";
+    headTitle.style.top = "45%";
   }
 });
 
 //прокрутка скринов по горизонтали (при помощи нажатия кнопки на главной панели)
-
-
-homeIcon.addEventListener("click", function () {
+document.getElementById("homeBtn").addEventListener("click", function () {
   currentScreens = 0;
   web.style.left = -currentScreens * 100 + "vw";
+  homeBtn.style.display = "none";
   updateHeadTitle();
 });
 
-document.getElementById("homeBtn").addEventListener("click", function () {
+document.getElementById("htmlBtn").addEventListener("click", function () {
   currentScreens = 1;
+  homeBtn.style.display = "block";
   web.style.left = -currentScreens * 100 + "vw";
   updateHeadTitle();
 });
 
-document.getElementById("aboutBtn").addEventListener("click", function () {
+document.getElementById("cssBtn").addEventListener("click", function () {
   currentScreens = 2;
+  homeBtn.style.display = "block";
   web.style.left = -currentScreens * 100 + "vw";
   updateHeadTitle();
 });
 
-document.getElementById("portfolioBtn").addEventListener("click", function () {
+document.getElementById("jsBtn").addEventListener("click", function () {
   currentScreens = 3;
+  homeBtn.style.display = "block";
   web.style.left = -currentScreens * 100 + "vw";
   updateHeadTitle();
 });
-
-document.getElementById("contactBtn").addEventListener("click", function () {
+document.getElementById("otherBtn").addEventListener("click", function () {
   currentScreens = 4;
+  homeBtn.style.display = "block";
   web.style.left = -currentScreens * 100 + "vw";
   updateHeadTitle();
 });
@@ -219,98 +235,3 @@ function linkProj(numProj) {
     isShowProj = false;
   }
 }
-
-
-// ПОИСК И ВЫДАЧА
-
-let example = [{
-  title: "HTML",
-  slide: 1,
-  section: 1,
-  ancor: 0
-}, {
-  title: "CSS",
-  slide: 2,
-  section: 1,
-  ancor: 0
-}, {
-  title: "JavaScript",
-  slide: 3,
-  section: 1,
-  ancor: 0
-},
-{
-  title: "FrontEnd",
-  slide: 4,
-  section: 1,
-  ancor: 0
-},
-{
-  title: "HTML basic",
-  slide: 1,
-  section: 1,
-  ancor: 0
-}, {
-  title: "CSS selector",
-  slide: 2,
-  section: 1,
-  ancor: 0
-}, {
-  title: "JavaScript jQuery",
-  slide: 3,
-  section: 1,
-  ancor: 0
-},
-{
-  title: "FrontEnd docer",
-  slide: 4,
-  section: 1,
-  ancor: 0
-},
-{
-  title: "HTML list",
-  slide: 1,
-  section: 1,
-  ancor: 0
-}, {
-  title: "CSS flex",
-  slide: 2,
-  section: 1,
-  ancor: 0
-}, {
-  title: "JavaScript Node.js",
-  slide: 3,
-  section: 1,
-  ancor: 0
-},
-{
-  title: "FrontEnd MySQL",
-  slide: 4,
-  section: 1,
-  ancor: 0
-}
-];
-
-searchInput.addEventListener("input", function () {
-  ulSearchList.innerHTML = "";
-  if(searchInput.value.length >= 2){
-  let seekResult = example.filter(function (listPunct) {
-     return listPunct.title.toLowerCase().includes(searchInput.value);
-  });
-  console.log(seekResult);
-  if (seekResult.length != 0) ulSearchList.style.display = "block";
-  else ulSearchList.style.display = "none";
-
-  for (let i = 0; i < seekResult.length; i++) {
-      let newLi = document.createElement('li');
-      newLi.addEventListener("click", function () {
-          move(i+1);
-      });
-      ulSearchList.appendChild(newLi);
-      newLi.textContent = seekResult[i].title;
-      };
-  }
-  else {
-      ulSearchList.style.display = "none";
-  }
-});
