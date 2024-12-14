@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--Возврат к старой ветке-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,59 +11,77 @@
     <script src="jQuery/jQuery.js" defer></script>
   </head>
   <body>
-    <canvas id="canvas"></canvas>
-    <header id="headTitle">
+    <div class="cont-home-icon">
+      <img src="img\icMENU.png" alt="Home" class="home-icon" />
+      <img src="img\icHTML2.png" alt="Home" class="home-icon" />
+      <img src="img\icCSS2.png" alt="Home" class="home-icon" />
+      <img src="img\icJS2.png" alt="Home" class="home-icon" />
+      <img src="img\icFE2.png" alt="Home" class="home-icon" />
+    </div>
+    
+    <div id="search">
+      <div id="search-result">
+          <ul id="search-list"></ul>
+      </div>
+      <input id="search-input" />
+      <div id="searchButton"></div>
+      <div id="krest"></div>
+    </div>
+    <header>
       <div class="header-side"></div>
-      <a id="homeBtn" href="#" onclick="move(0)">
-        <img src="Home.png" id="imgHome" alt="no img" />
-      </a>
-      <!--<img id="frontEndlogo" src="img\Front-end-logo-color@2x.png" alt="No logo" />-->
-      <h1>Frontend Developer</h1>
+      <div class="cont-title">
+        <h1 class="header-title">Frontend Developer</h1>
+      </div>
       <nav>
         <ul>
+            <li>
+              
+                  <div class="submenu-circle">&#10094;basic&#10095;</div>
+                  <div class="submenu-circle">&#10094;table&#10095;</div>
+                  <div class="submenu-circle">&#10094;list&#10095;</div>
+                  <div class="submenu-circle"></div>
+                  <div class="arc"></div>
+                  <div class="cont-menu"> </div>
+                  <a id="htmlBtn" href="#" onclick="move(0)">
+                    <img src="img\icHTML2.png" alt="Home" class="nav-icon" />
+                  </a>
+                
+            </li>
           <li>
-            <div class="submenu-circle">&#10094;basic&#10095;</div>
-            <div class="submenu-circle">&#10094;table&#10095;</div>
-            <div class="submenu-circle">&#10094;list&#10095;</div>
-            <div class="submenu-circle"></div>
-            <div class="arc"></div>
-            <div class="cont-menu"></div>
-            <a id="htmlBtn" href="#" onclick="move(1)">
-              <img src="img\icHTML2.png" alt="Home" class="nav-icon" />
-            </a>
+            
+              <div class="submenu-circle">&#10100;selectors&#10101;</div>
+              <div class="submenu-circle">&#10100;styles&#10101;</div>
+              <div class="submenu-circle">&#10100;layout&#10101;</div>
+              <div class="submenu-circle"></div>
+              <div class="arc"></div>
+              <div class="cont-menu"> </div>
+              <a id="cssBtn" href="#" onclick="move(1)">
+                  <img src="img\icCSS2.png" alt="About" class="nav-icon" />
+              </a>
           </li>
           <li>
-            <div class="submenu-circle">&#10100;selectors&#10101;</div>
-            <div class="submenu-circle">&#10100;styles&#10101;</div>
-            <div class="submenu-circle">&#10100;layout&#10101;</div>
-            <div class="submenu-circle"></div>
-            <div class="arc"></div>
-            <div class="cont-menu"></div>
-            <a id="cssBtn" href="#" onclick="move(2)">
-              <img src="img\icCSS2.png" alt="About" class="nav-icon" />
-            </a>
+              
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="arc"></div>
+              <div class="cont-menu"> </div>
+              <a  id="jsBtn" href="#" onclick="move(2)">
+                  <img src="img\icJS2.png" alt="Portfolio" class="nav-icon" />
+              </a>
           </li>
           <li>
-            <div class="submenu-circle"></div>
-            <div class="submenu-circle"></div>
-            <div class="submenu-circle"></div>
-            <div class="submenu-circle"></div>
-            <div class="arc"></div>
-            <div class="cont-menu"></div>
-            <a id="jsBtn" href="#" onclick="move(3)">
-              <img src="img\icJS2.png" alt="Portfolio" class="nav-icon" />
-            </a>
-          </li>
-          <li>
-            <div class="submenu-circle"></div>
-            <div class="submenu-circle"></div>
-            <div class="submenu-circle"></div>
-            <div class="submenu-circle"></div>
-            <div class="arc"></div>
-            <div class="cont-menu"></div>
-            <a id="otherBtn" href="#" onclick="move(4)">
-              <img src="img\icFE2.png" alt="Contact" class="nav-icon" />
-            </a>
+              
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="submenu-circle"></div>
+              <div class="arc"></div>
+              <div class="cont-menu"> </div>
+              <a id="otherBtn" href="#" onclick="move(3)">
+                  <img src="img\icFE2.png" alt="Contact" class="nav-icon" />
+              </a>
           </li>
         </ul>
       </nav>
@@ -307,8 +324,22 @@
           </div>
         </div>
       </div>
+
+
       <div id="css" class="scrin">
-        <p></p>
+                 <!--Стрелки-->
+        <div class="arrow arrowUp">
+          <p>ᐱ</p>
+        </div>
+
+        <div class="arrow arrowDown">
+          <p>ᐯ</p>
+        </div>
+
+        <div class="gasketForScroll">
+
+
+        </div>
       </div>
       <div id="js" class="scrin"></div>
       <div id="other" class="scrin"></div>
