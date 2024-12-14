@@ -1,8 +1,13 @@
+////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////// DECLARATION OF VARIABLES //////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+
 let screens = Array.from(document.getElementsByClassName("scrin"));
 let numberScreens = screens.length;
 let web = document.getElementById("web");
 let currentScreens = 0;
-let headTitle = document.getElementById("headTitle");
+let header = document.getElementsByTagName("header")[0];
 let nav = document.getElementById("inf1");
 let body = document.getElementsByTagName("body")[0];
 
@@ -25,7 +30,15 @@ let homeIcon = document.querySelector("div.cont-home-icon");
 let searchPanel = document.getElementById("search");
 let searchInput = document.getElementById("search-input");
 let ulSearchList = document.getElementById("search-list");
+let headerTitle = Array.from(document.getElementsByClassName("header-title"));
+
 //const bodyBcgSize = parseFloat(window.getComputedStyle(body).backgroundSize);
+
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////// HEADER //////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
 
 // Анимации для выплывания подмкеню при наведении на элементы меню
 
@@ -74,6 +87,42 @@ homeIcon.addEventListener("mouseleave", () => {
   setTimeout(() => {homeIcon.style.background = "rgba(0, 0, 0, 0)";}, 600);
   homeIcon.style.height = "75px";
 });
+
+function foldingheader(currentScreen) {
+    if (currentScreen != 0) {
+      headerTitle[1].style.width = "0px";
+      headerTitle[1].style.margin = "0 0 0 0";
+      headerTitle[3].style.width = "0px";
+    } else {
+      headerTitle[1].style.width = "auto";
+      headerTitle[1].style.margin = "0 20px 0 0";
+      headerTitle[3].style.width = "auto";
+    }
+    headerTitle.forEach(function(title) {console.log(title.textContent);});
+}
+
+function updateheader() {
+  if (currentScreens === 0) {
+    header.style.height = "400px";
+    headerSide.style.left = "0px";
+    header.style.top = "45%";
+    homeIcon.style.top = "-170px";
+    searchPanel.style.top = "-220px";
+  } else {
+    header.style.height = "90px";
+    headerSide.style.left = "-510px";
+    homeIcon.style.top = "20px";
+    header.style.top = "0%";
+    searchPanel.style.top = "20px";
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////// SLIDER //////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
 // Функция для скринов горизонтальной развертки
 function move(num) {
   currentScreens = num;
@@ -81,28 +130,13 @@ function move(num) {
   web.style.transition = 0.4 + "s";
 }
 
-function updateHeadTitle() {
-  if (currentScreens === 0) {
-    headTitle.style.height = "400px";
-    headerSide.style.left = "0px";
-    headTitle.style.top = "45%";
-    homeIcon.style.top = "-170px";
-    searchPanel.style.top = "-220px";
-  } else {
-    headTitle.style.height = "90px";
-    headerSide.style.left = "-510px";
-    homeIcon.style.top = "20px";
-    headTitle.style.top = "0%";
-    searchPanel.style.top = "20px";
-  }
-}
 // добавили скрины по горизонтали (прокрутка колесом)
 window.addEventListener("wheel", function (event) {
   if (event.deltaY > 0) {
     if (currentScreens < numberScreens) {
       currentScreens++;
       web.style.left = -currentScreens * 100 + "vw";
-      updateHeadTitle();
+      updateheader();
       body.style.backgroundPosition =
         (100 * currentScreens) / numberScreens + "%";
       //console.log(100 * currentScreens / (numberScreens) + "%");
@@ -111,14 +145,15 @@ window.addEventListener("wheel", function (event) {
     if (currentScreens > 0) {
       currentScreens--;
       web.style.left = -currentScreens * 100 + "vw";
-      updateHeadTitle();
+      updateheader();
       body.style.backgroundPosition =
         (100 * currentScreens) / numberScreens + "%";
     }
   }
   if (currentScreens == 0) {
-    updateHeadTitle();
+    updateheader();
   }
+  foldingheader(currentScreens);
 });
 
 //прокрутка скринов по горизонтали (при помощи нажатия кнопки на главной панели)
@@ -127,34 +162,38 @@ window.addEventListener("wheel", function (event) {
 homeIcon.addEventListener("click", function () {
   currentScreens = 0;
   web.style.left = -currentScreens * 100 + "vw";
-  updateHeadTitle();
+  updateheader();
 });
 
 document.getElementById("homeBtn").addEventListener("click", function () {
   currentScreens = 1;
   web.style.left = -currentScreens * 100 + "vw";
-  updateHeadTitle();
+  updateheader();
 });
 
 document.getElementById("aboutBtn").addEventListener("click", function () {
   currentScreens = 2;
   web.style.left = -currentScreens * 100 + "vw";
-  updateHeadTitle();
+  updateheader();
 });
 
 document.getElementById("portfolioBtn").addEventListener("click", function () {
   currentScreens = 3;
   web.style.left = -currentScreens * 100 + "vw";
-  updateHeadTitle();
+  updateheader();
 });
 
 document.getElementById("contactBtn").addEventListener("click", function () {
   currentScreens = 4;
   web.style.left = -currentScreens * 100 + "vw";
-  updateHeadTitle();
+  updateheader();
 });
 
-// Сщздаем всплываюшее окно с нужной нам информацией
+
+//////////////////////////////////////////////////////////////////////
+////////////////////// POP-UP MODAL-WINDOWS //////////////////////////
+//////////////////////////////////////////////////////////////////////
+
 
 let explanationJS = Array.from(
   document.getElementsByClassName("explanationJS")
@@ -221,7 +260,9 @@ function linkProj(numProj) {
 }
 
 
-// ПОИСК И ВЫДАЧА
+//////////////////////////////////////////////////////////////////////
+//////////////////////////// SEARCH /////////////////////////////////
+//////////////////////////////////////////////////////////////////////
 
 let example = [{
   title: "HTML",
