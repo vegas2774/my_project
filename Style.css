@@ -1,5 +1,6 @@
+/* проверка связи */
 #web {
-  width: 300vw;
+  width: 400vw;
   height: 300vh;
   display: flex;
   position: absolute;
@@ -17,7 +18,7 @@
   height: 100vh;
   border: #000000;
   background-color: #f9f5f5;
-  opacity: 0.8;
+  opacity: 0.9;
   transition: 0.4s;
 }
 @media (min-width: 1368px) {
@@ -30,35 +31,57 @@
 }
 
 body {
-    overflow: hidden;
-    max-width: 60%;
-    max-height: 60%;
-    transition: 0.4s;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    display: inline-block;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    background-image: url("img/background-img.jpg");
-    background-attachment: fixed;
-    background-size: 110%;;
-    background-position: 0% 50%;
-    background-repeat: no-repeat;
+  overflow: hidden;
+  max-width: 60%;
+  max-height: 60%;
+  transition: 0.4s;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-image: url("img/background-img.jpg");
+  background-attachment: fixed;
+  background-size: 110%;
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
 }
 
 #headTitle {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.62);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 100vw;
   height: 400px;
   padding: 10px;
   top: 45%;
   text-align: center;
   position: absolute;
+  overflow: hidden;
   transition: 0.4s;
   z-index: 1000;
+}
+
+div.cont-home-icon {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0);
+  top: -170px;
+  left: 40px;
+  height: 75px;
+  z-index: 1100;
+  transition: 0.8s;
+}
+
+img.home-icon {
+  height: 70px;
+  margin: 0 0 24px 0;
+  cursor: pointer;
 }
 
 header h1 {
@@ -74,12 +97,15 @@ header h1 {
 }
 
 header div.header-side {
+  position: relative;
+  left: 0px;
   height: 337px;
   width: 147px;
   border: 4px solid #ffffff;
   border-color: #ffffff #ababab transparent transparent;
   transform: rotate(45deg);
-  margin:20px;  
+  margin: 20px;
+  transition: 0.4s;
 }
 
 @media (max-width: 1368px) {
@@ -115,11 +141,122 @@ header div.header-side {
   }
 }
 
+#search {
+  position:absolute;
+  top: -220px;
+  left: calc(100vw - 500px);
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  grid-gap:20px; 
+  width: 450px;
+  height: 50px;
+  background-color: #000000;
+  padding: 5px;
+  border-radius: 10px;
+  z-index: 1300;
+  transition: 0.8s;
+}
+
+#search-list {
+  position: absolute;
+  top: 50px;
+  width: 450px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  overflow-y: scroll;
+  display: none;
+  transition: 0.4s;
+  z-index: 4000;
+}
+
+#search-list li {
+  border-bottom: solid grey 2px;
+  padding: 5px;
+  margin: 0px 20px 0px 0px;
+  cursor: pointer;
+  transition: 0.3s;
+  
+}
+
+#search-input {
+  position:relative;
+  width: 350px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #DDDDDD;
+  outline:none;
+  color: #555555;
+}
+
+#searchButton {
+  position: relative;
+  background-color: none;
+  border:2px solid white;
+  z-index:101;
+  height: 15px;
+  width: 15px;
+  cursor:pointer;
+  border-radius:50%;
+}
+
+
+#searchButton::after {  
+  content:" ";
+  position:relative;
+  top:106%;
+  z-index:50;
+  left:87%;
+  display:block;
+  width:9px;
+  height:2px;
+  background-color:white;
+  transform:rotate(45deg) ;
+
+}
+
+#krest {
+  position: relative;
+  z-index: 101;
+  height: 15px;
+  width: 15px;
+  cursor: pointer; 
+}
+
+  #krest::before {
+      content: " ";
+      position: relative;
+      top: 52%;
+      z-index: 50;
+      left: 3%;
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: #AAAAAA;
+      transform: rotate(45deg);
+  }
+  #krest::after {
+      content: " ";
+      position: relative;
+      top: 35%;
+      z-index: 50;
+      left: 3%;
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: #AAAAAA;
+      transform: rotate(-45deg);
+  }
+
 nav ul {
   position: absolute;
   display: flex;
   list-style: none;
-  padding: 40px 40px 40px 100px ;
+  padding: 40px 40px 40px 100px;
   top: 40px;
   left: 10vw;
 }
@@ -129,9 +266,7 @@ nav ul li {
   display: flex;
   margin: 0 30px 0 150px;
   cursor: pointer;
-
 }
-
 
 /* Стартовые настройки подменю */
 .cont-menu {
@@ -140,7 +275,6 @@ nav ul li {
   width: 300px;
   height: 300px;
   /*border: 5px solid red;*/
-
 }
 
 .arc {
@@ -169,131 +303,111 @@ li:nth-child(4) div.arc {
 }
 
 .submenu-circle {
-    position: absolute;
-    top: calc(50% - 25px); 
-    left: calc(50% - 50px);
-    width: 100px;
-    height: 50px;
-    z-index: 2000;
-    border-radius: 25px;
-    overflow: hidden;
-    background-position: center;
-    background-size: 80px;
-    background-repeat: no-repeat;
-    text-align: center;
-    line-height: 50px;
-    font-size: 25px;
-    cursor: pointer;
-    opacity: 0;
-    transition: 0.3s ease;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 50px;
+  z-index: 2000;
+  border-radius: 25px;
+  overflow: hidden;
+  background-position: center;
+  background-size: 80px;
+  background-repeat: no-repeat;
+  text-align: center;
+  line-height: 50px;
+  font-size: 25px;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s ease;
 }
 
-    .submenu-circle:nth-child(1) {
-
-    }
-    .submenu-circle:nth-child(2) {
-      
-    }
-    .submenu-circle:nth-child(3) {
-      
-    }
-    .submenu-circle:nth-child(4) {
-      
-    }
-
-
-    nav ul li a {
-      align-items:flex-start;
-      display: block;
-      z-index: 2100;
-      overflow: hidden;
-      height: 260px;
-      transition: 0.3s ease;
-    }
+nav ul li a {
+  align-items: flex-start;
+  display: block;
+  z-index: 2100;
+  overflow: hidden;
+  height: 260px;
+  transition: 0.3s ease;
+}
 
 /* Устанавливаем цвета фона подменю */
 
 li:nth-child(1) div.submenu-circle {
-    background-color: rgba(224,46,0,0.9);
-    border: 3px solid #c31400;
+  background-color: rgba(224, 46, 0, 0.9);
+  border: 3px solid #c31400;
 }
 li:nth-child(2) div.submenu-circle {
-    background-color: rgba(0,110,186,0.9);
-    border: 3px solid rgb(0, 11, 190);
+  background-color: rgba(0, 110, 186, 0.9);
+  border: 3px solid rgb(0, 11, 190);
 }
 li:nth-child(3) div.submenu-circle {
-    background-color: rgba(228,189,0,0.9);
-    border: 3px solid rgb(137, 112, 11);
+  background-color: rgba(228, 189, 0, 0.9);
+  border: 3px solid rgb(137, 112, 11);
 }
 li:nth-child(4) div.submenu-circle {
-    background-color: rgba(167, 200, 0, 0.9);
-    border: 3px solid rgb(65, 101, 24);
+  background-color: rgba(167, 200, 0, 0.9);
+  border: 3px solid rgb(65, 101, 24);
 }
 
 /* Устанавливаем изображения подменю */
 
 li:nth-child(1) div.submenu-circle:nth-child(1) {
-   
 }
 li:nth-child(1) div.submenu-circle:nth-child(2) {
-    
 }
 li:nth-child(1) div.submenu-circle:nth-child(3) {
-    
 }
 li:nth-child(1) div.submenu-circle:nth-child(4) {
-    background-image: url("img/submenu/multipoint.png");
-    background-size: 45px;
+  background-image: url("img/submenu/multipoint.png");
+  background-size: 45px;
 }
 
 li:nth-child(2) div.submenu-circle:nth-child(1) {
-    font-size: 20px;
+  font-size: 20px;
 }
 li:nth-child(2) div.submenu-circle:nth-child(2) {
-
 }
 li:nth-child(2) div.submenu-circle:nth-child(3) {
-
 }
 li:nth-child(2) div.submenu-circle:nth-child(4) {
-    background-image: url("img/submenu/multipoint.png");
-    background-size: 45px;
+  background-image: url("img/submenu/multipoint.png");
+  background-size: 45px;
 }
 
 li:nth-child(3) div.submenu-circle:nth-child(1) {
-    background-image: url("img/submenu/nodejs.svg");
+  background-image: url("img/submenu/nodejs.svg");
 }
 
 li:nth-child(3) div.submenu-circle:nth-child(2) {
-    background-image: url("img/submenu/react.svg");
+  background-image: url("img/submenu/react.svg");
 }
 
 li:nth-child(3) div.submenu-circle:nth-child(3) {
-    background-image: url("img/submenu/jquery.png");
+  background-image: url("img/submenu/jquery.png");
 }
 
 li:nth-child(3) div.submenu-circle:nth-child(4) {
-    background-image: url("img/submenu/multipoint.png");
-    background-size: 45px;
+  background-image: url("img/submenu/multipoint.png");
+  background-size: 45px;
 }
 
 li:nth-child(4) div.submenu-circle:nth-child(1) {
-    background-image: url("img/submenu/docker.svg");
+  background-image: url("img/submenu/docker.svg");
 }
 
 li:nth-child(4) div.submenu-circle:nth-child(2) {
-    background-image: url("img/submenu/sql.svg");
+  background-image: url("img/submenu/sql.svg");
 }
 
 li:nth-child(4) div.submenu-circle:nth-child(3) {
-    background-image: url("img/submenu/github.svg");
+  background-image: url("img/submenu/github.svg");
 }
 
 li:nth-child(4) div.submenu-circle:nth-child(4) {
-    background-image: url("img/submenu/multipoint.png");
-    background-size: 45px;
+  background-image: url("img/submenu/multipoint.png");
+  background-size: 45px;
 }
-
 
 @media (max-width: 1368px) {
   nav ul li a {
@@ -318,7 +432,7 @@ nav ul li a img {
   display: inline-block;
   z-index: 1300;
   width: 170px;
-  padding-top:30px;
+  padding-top: 30px;
   cursor: pointer;
 }
 
@@ -374,7 +488,8 @@ footer p {
 
 #about,
 #portfolio,
-#contact {
+#contact,
+#other {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 3px solid #000000;
   position: relative;
@@ -460,31 +575,6 @@ footer p {
   .form-group textarea {
     width: 50%;
     font-size: 12px;
-  }
-}
-/* Добавление катры*/
-#contact {
-  padding: 20px;
-}
-
-#map {
-  display: inline-block;
-  position: fixed;
-  border-radius: 10px;
-  box-shadow: 2px -4px 8px rgb(92, 36, 246);
-  height: 300px;
-  width: 10%;
-  margin-left: 17%;
-  margin-top: 115px;
-  z-index: 1300;
-}
-@media (max-width: 768px) {
-  #map {
-    height: 200px;
-    width: 30%;
-    margin-left: 1.7%;
-    margin-top: 38%;
-    z-index: 1300;
   }
 }
 
