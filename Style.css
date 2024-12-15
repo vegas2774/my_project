@@ -37,7 +37,7 @@ body {
   max-width: 60%;
   max-height: 60%;
   transition: 0.4s;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   margin: 0;
   display: inline-block;
@@ -51,12 +51,11 @@ body {
   background-repeat: no-repeat;
 }
 
-
 header {
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
   width: 100vw;
-  height: 440px;
+  height: 445px;
   padding: 10px;
   top: 45%;
   text-align: center;
@@ -83,11 +82,11 @@ div.cont-home-icon {
 
 img.home-icon {
   height: 70px;
-  margin: 0 0 24px 0;
+  margin: 0 0 23px 0;
   cursor: pointer;
 }
 
-header div.cont-title{
+header div.cont-title {
   display: flex;
 }
 header h1.header-title {
@@ -157,15 +156,14 @@ header div.header-side {
   }
 }
 
-
 #search {
-  position:absolute;
+  position: absolute;
   top: -220px;
   left: calc(100vw - 500px);
   display: flex;
-  justify-content:center;
-  align-items:center;
-  grid-gap:20px; 
+  justify-content: center;
+  align-items: center;
+  grid-gap: 20px;
   width: 450px;
   height: 50px;
   background-color: #000000;
@@ -197,43 +195,40 @@ header div.header-side {
   margin: 0px 20px 0px 0px;
   cursor: pointer;
   transition: 0.3s;
-  
 }
 
 #search-input {
-  position:relative;
+  position: relative;
   width: 350px;
   height: 30px;
   border-radius: 10px;
-  background-color: #DDDDDD;
-  outline:none;
+  background-color: #dddddd;
+  outline: none;
   color: #555555;
 }
 
 #searchButton {
   position: relative;
   background-color: none;
-  border:2px solid white;
-  z-index:101;
+  border: 2px solid white;
+  z-index: 101;
   height: 15px;
   width: 15px;
-  cursor:pointer;
-  border-radius:50%;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
-
-#searchButton::after {  
-  content:" ";
-  position:relative;
-  top:106%;
-  z-index:50;
-  left:87%;
-  display:block;
-  width:9px;
-  height:2px;
-  background-color:white;
-  transform:rotate(45deg) ;
-
+#searchButton::after {
+  content: " ";
+  position: relative;
+  top: 106%;
+  z-index: 50;
+  left: 87%;
+  display: block;
+  width: 9px;
+  height: 2px;
+  background-color: white;
+  transform: rotate(45deg);
 }
 
 #krest {
@@ -241,33 +236,33 @@ header div.header-side {
   z-index: 101;
   height: 15px;
   width: 15px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-  #krest::before {
-      content: " ";
-      position: relative;
-      top: 52%;
-      z-index: 50;
-      left: 3%;
-      display: block;
-      width: 20px;
-      height: 2px;
-      background-color: #AAAAAA;
-      transform: rotate(45deg);
-  }
-  #krest::after {
-      content: " ";
-      position: relative;
-      top: 35%;
-      z-index: 50;
-      left: 3%;
-      display: block;
-      width: 20px;
-      height: 2px;
-      background-color: #AAAAAA;
-      transform: rotate(-45deg);
-  }
+#krest::before {
+  content: " ";
+  position: relative;
+  top: 52%;
+  z-index: 50;
+  left: 3%;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #aaaaaa;
+  transform: rotate(45deg);
+}
+#krest::after {
+  content: " ";
+  position: relative;
+  top: 35%;
+  z-index: 50;
+  left: 3%;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #aaaaaa;
+  transform: rotate(-45deg);
+}
 
 nav ul {
   position: absolute;
@@ -472,7 +467,6 @@ nav ul li a img {
 }
 
 .arrow {
-
   opacity: 1;
   z-index: 3000;
   position: absolute;
@@ -481,7 +475,7 @@ nav ul li a img {
   align-items: center; /* Центрирование по вертикали */
   height: 70px;
   width: 100%;
-  color: rgba(255,255,255,1.0);
+  color: rgba(255, 255, 255, 1);
   font-weight: 600;
   text-align: center;
   font-size: 35px;
@@ -489,37 +483,49 @@ nav ul li a img {
   cursor: pointer;
 }
 .arrowUp {
-  background: radial-gradient(circle, rgba(254,255,53,0.9) 0%, rgba(0,0,0,0) 90%); /*linear-gradient(180deg, rgba(254,255,53,0.3) 0%, rgba(0,0,0,0) 85%);*/
+  background: radial-gradient(
+    circle,
+    rgba(254, 255, 53, 0.9) 0%,
+    rgba(0, 0, 0, 0) 90%
+  ); /*linear-gradient(180deg, rgba(254,255,53,0.3) 0%, rgba(0,0,0,0) 85%);*/
   top: 0%;
-  
+
   /*box-shadow: 0px 1px 22px 6px rgba(255,255,133,0.25);*/
 }
-  .arrowUp p{
-    position: relative; 
-    top: -10%; 
-    transform:scale(2,1);
-  }
+.arrowUp p {
+  position: relative;
+  top: -10%;
+  transform: scale(2, 1);
+}
 .arrowDown {
-  background: radial-gradient(circle, rgba(254,255,53,0.9) 0%, rgba(0,0,0,0) 90%); /*linear-gradient(0deg, rgba(254,255,53,0.3) 0%, rgba(0,0,0,0) 85%);*/
+  background: radial-gradient(
+    circle,
+    rgba(254, 255, 53, 0.9) 0%,
+    rgba(0, 0, 0, 0) 90%
+  ); /*linear-gradient(0deg, rgba(254,255,53,0.3) 0%, rgba(0,0,0,0) 85%);*/
   top: 90%;
 
   /*box-shadow: 0px -1px 22px 6px rgba(255,255,133,0.25);*/
 }
-  .arrowDown p{
-    position: relative; 
-    top: 10%; 
-    transform: scale(2,1);
-  }
+.arrowDown p {
+  position: relative;
+  top: 10%;
+  transform: scale(2, 1);
+}
 
-  .gasketForScroll {
-    position: relative;
-    background: radial-gradient(circle, rgba(0, 162, 255, 0.9) 0%, rgba(0,0,0,0) 90%);
-    width: 100%;
-    height: calc(3 * (100vh - 120px));
-    overflow: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(40,40,40,0.0) rgba(40,40,40,0.0);
-    transition: 0.4s;
+.gasketForScroll {
+  position: relative;
+  background: radial-gradient(
+    circle,
+    rgba(0, 162, 255, 0.9) 0%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  width: 100%;
+  height: calc(3 * (100vh - 120px));
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(40, 40, 40, 0) rgba(40, 40, 40, 0);
+  transition: 0.4s;
 }
 
 h2 /*заголовок для контактов*/ {

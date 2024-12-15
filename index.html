@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dmytro Palchykov - Programmer Portfolio</title>
+    <title>Programmer Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/zjg6kjf.css" />
     <link rel="stylesheet" href="Style.css" />
@@ -12,16 +12,51 @@
   </head>
   <body>
     <div class="cont-home-icon">
-      <img src="img\icMENU.png" alt="Home" class="home-icon" />
-      <img src="img\icHTML2.png" alt="Home" class="home-icon" />
-      <img src="img\icCSS2.png" alt="Home" class="home-icon" />
-      <img src="img\icJS2.png" alt="Home" class="home-icon" />
-      <img src="img\icFE2.png" alt="Home" class="home-icon" />
+      <a href="#">
+        <img
+          src="img\icMENU.png"
+          alt="Home"
+          class="home-icon"
+          onclick="move(0)"
+        />
+      </a>
+      <a href="#" id="htmlSmall">
+        <img
+          src="img\icHTML2.png"
+          alt="Home"
+          class="home-icon"
+          onclick="move(1)"
+        />
+      </a>
+      <a href="#">
+        <img
+          src="img\icCSS2.png"
+          alt="Home"
+          class="home-icon"
+          onclick="move(2)"
+        />
+      </a>
+      <a href="#">
+        <img
+          src="img\icJS2.png"
+          alt="Home"
+          class="home-icon"
+          onclick="move(3)"
+        />
+      </a>
+      <a href="#">
+        <img
+          src="img\icFE2.png"
+          alt="Home"
+          class="home-icon"
+          onclick="move(4)"
+        />
+      </a>
     </div>
-    
+
     <div id="search">
       <div id="search-result">
-          <ul id="search-list"></ul>
+        <ul id="search-list"></ul>
       </div>
       <input id="search-input" />
       <div id="searchButton"></div>
@@ -34,54 +69,49 @@
       </div>
       <nav>
         <ul>
-            <li>
-              
-                  <div class="submenu-circle">&#10094;basic&#10095;</div>
-                  <div class="submenu-circle">&#10094;table&#10095;</div>
-                  <div class="submenu-circle">&#10094;list&#10095;</div>
-                  <div class="submenu-circle"></div>
-                  <div class="arc"></div>
-                  <div class="cont-menu"> </div>
-                  <a id="htmlBtn" href="#" onclick="move(0)">
-                    <img src="img\icHTML2.png" alt="Home" class="nav-icon" />
-                  </a>
-                
-            </li>
           <li>
-            
-              <div class="submenu-circle">&#10100;selectors&#10101;</div>
-              <div class="submenu-circle">&#10100;styles&#10101;</div>
-              <div class="submenu-circle">&#10100;layout&#10101;</div>
-              <div class="submenu-circle"></div>
-              <div class="arc"></div>
-              <div class="cont-menu"> </div>
-              <a id="cssBtn" href="#" onclick="move(1)">
-                  <img src="img\icCSS2.png" alt="About" class="nav-icon" />
-              </a>
+            <div class="submenu-circle">&#10094;basic&#10095;</div>
+            <div class="submenu-circle">&#10094;table&#10095;</div>
+            <div class="submenu-circle">&#10094;list&#10095;</div>
+            <div class="submenu-circle"></div>
+            <div class="arc"></div>
+            <div class="cont-menu"></div>
+            <a id="htmlBtn" href="#" onclick="move(1)">
+              <img src="img\icHTML2.png" alt="Home" class="nav-icon" />
+            </a>
           </li>
           <li>
-              
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="arc"></div>
-              <div class="cont-menu"> </div>
-              <a  id="jsBtn" href="#" onclick="move(2)">
-                  <img src="img\icJS2.png" alt="Portfolio" class="nav-icon" />
-              </a>
+            <div class="submenu-circle">&#10100;selectors&#10101;</div>
+            <div class="submenu-circle">&#10100;styles&#10101;</div>
+            <div class="submenu-circle">&#10100;layout&#10101;</div>
+            <div class="submenu-circle"></div>
+            <div class="arc"></div>
+            <div class="cont-menu"></div>
+            <a id="cssBtn" href="#" onclick="move(2)">
+              <img src="img\icCSS2.png" alt="About" class="nav-icon" />
+            </a>
           </li>
           <li>
-              
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="submenu-circle"></div>
-              <div class="arc"></div>
-              <div class="cont-menu"> </div>
-              <a id="otherBtn" href="#" onclick="move(3)">
-                  <img src="img\icFE2.png" alt="Contact" class="nav-icon" />
-              </a>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="arc"></div>
+            <div class="cont-menu"></div>
+            <a id="jsBtn" href="#" onclick="move(3)">
+              <img src="img\icJS2.png" alt="Portfolio" class="nav-icon" />
+            </a>
+          </li>
+          <li>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="submenu-circle"></div>
+            <div class="arc"></div>
+            <div class="cont-menu"></div>
+            <a id="otherBtn" href="#" onclick="move(4)">
+              <img src="img\icFE2.png" alt="Contact" class="nav-icon" />
+            </a>
           </li>
         </ul>
       </nav>
@@ -167,9 +197,10 @@
           <div class="explanationCSS" onclick="linkCSS(3)">
             <strong>Animations and Transitions:</strong> <br /><br />Created
             engaging user experiences with CSS animations and transitions.
-            Applied keyframe animations and used properties like
-            <code>transform</code>, <code>transition</code>, and
-            <code>animation</code> to bring web pages to life.
+            Applied.display = "none";splay = "none";splay = "none";yframe
+            animations and used properties like <code>transform</code>,
+            <code>transition</code>, and <code>animation</code> to bring web
+            pages to life.
           </div>
 
           <div class="explanationProj" onclick="linkProj(0)">
@@ -325,9 +356,8 @@
         </div>
       </div>
 
-
       <div id="css" class="scrin">
-                 <!--Стрелки-->
+        <!--Стрелки-->
         <div class="arrow arrowUp">
           <p>ᐱ</p>
         </div>
@@ -336,10 +366,7 @@
           <p>ᐯ</p>
         </div>
 
-        <div class="gasketForScroll">
-
-
-        </div>
+        <div class="gasketForScroll"></div>
       </div>
       <div id="js" class="scrin"></div>
       <div id="other" class="scrin"></div>
