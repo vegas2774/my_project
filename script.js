@@ -189,11 +189,6 @@ submenuCircle.forEach((submenuGroup, screenIndex) => {
 
 ////////////////////// привязка главного меню на домашней странице к скринам//////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
-document.getElementById("homeBtn").addEventListener("click", function () {
-  currentScreens = 0;
-  web.style.left = -currentScreens * 100 + "vw";
-  updateheader();
-});
 
 document.getElementById("htmlBtn").addEventListener("click", function () {
   currentScreens = 1;
@@ -218,74 +213,6 @@ document.getElementById("otherBtn").addEventListener("click", function () {
   web.style.left = -currentScreens * 100 + "vw";
   updateheader();
 });
-
-//////////////////////////////////////////////////////////////////////
-////////////////////// POP-UP MODAL-WINDOWS //////////////////////////
-//////////////////////////////////////////////////////////////////////
-
-let explanationJS = Array.from(
-  document.getElementsByClassName("explanationJS")
-);
-let isShowJS = false;
-function linkJS(numJS) {
-  if (isShowJS === false) {
-    explanationJS[numJS].style.opacity = "1";
-    explanationJS[numJS].style.transform = "scale(1)";
-    isShowJS = true;
-  } else {
-    explanationJS[numJS].style.opacity = "0";
-    explanationJS[numJS].style.transform = "scale(0)";
-    isShowJS = false;
-  }
-}
-
-let explanationHTML = Array.from(
-  document.getElementsByClassName("explanationHTML")
-);
-let isShowHTML = false;
-function linkHTML(numHTML) {
-  if (isShowHTML === false) {
-    explanationHTML[numHTML].style.opacity = "1";
-    explanationHTML[numHTML].style.transform = "scale(1)";
-    isShowHTML = true;
-  } else {
-    explanationHTML[numHTML].style.opacity = "0";
-    explanationHTML[numHTML].style.transform = "scale(0)";
-    isShowHTML = false;
-  }
-}
-
-let explanationCSS = Array.from(
-  document.getElementsByClassName("explanationCSS")
-);
-let isShowCSS = false;
-function linkCSS(numCSS) {
-  if (isShowCSS === false) {
-    explanationCSS[numCSS].style.opacity = "1";
-    explanationCSS[numCSS].style.transform = "scale(1)";
-    isShowCSS = true;
-  } else {
-    explanationCSS[numCSS].style.opacity = "0";
-    explanationCSS[numCSS].style.transform = "scale(0)";
-    isShowCSS = false;
-  }
-}
-
-let explanationProj = Array.from(
-  document.getElementsByClassName("explanationProj")
-);
-let isShowProj = false;
-function linkProj(numProj) {
-  if (isShowProj === false) {
-    explanationProj[numProj].style.opacity = "1";
-    explanationProj[numProj].style.transform = "scale(1)";
-    isShowProj = true;
-  } else {
-    explanationProj[numProj].style.opacity = "0";
-    explanationProj[numProj].style.transform = "scale(0)";
-    isShowProj = false;
-  }
-}
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////// SEARCH /////////////////////////////////
