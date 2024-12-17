@@ -2,6 +2,8 @@
 //////////////////////////// DECLARATION OF VARIABLES //////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+
 let screens = Array.from(document.getElementsByClassName("scrin"));
 let numberScreens = screens.length;
 let web = document.getElementById("web");
@@ -31,6 +33,9 @@ let searchPanel = document.getElementById("search");
 let searchInput = document.getElementById("search-input");
 let ulSearchList = document.getElementById("search-list");
 let headerTitle = Array.from(document.getElementsByClassName("header-title"));
+let arrowUp = Array.from(document.getElementsByClassName("arrowUp"));
+let arrowDown = Array.from(document.getElementsByClassName("arrowDown"));
+let gasketForScroll = document.getElementsByClassName("gasketForScroll");
 //const bodyBcgSize = parseFloat(window.getComputedStyle(body).backgroundSize);
 
 //////////////////////////////////////////////////////////////////////
@@ -88,20 +93,6 @@ homeIcon.addEventListener("mouseleave", () => {
   homeIcon.style.height = "75px";
 });
 
-function foldingheader(currentScreen) {
-  if (currentScreen != 0) {
-    headerTitle[1].style.width = "0px";
-    headerTitle[1].style.margin = "0 0 0 0";
-    headerTitle[3].style.width = "0px";
-  } else {
-    headerTitle[1].style.width = "auto";
-    headerTitle[1].style.margin = "0 20px 0 0";
-    headerTitle[3].style.width = "auto";
-  }
-  headerTitle.forEach(function (title) {
-    console.log(title.textContent);
-  });
-}
 
 function updateheader() {
   if (currentScreens === 0) {
@@ -109,13 +100,12 @@ function updateheader() {
     headerSide.style.left = "0px";
     header.style.top = "45%";
     homeIcon.style.top = "-170px";
-    homeIcon.style.display = "none";
+    homeIcon.style.height = "75px";
     searchPanel.style.top = "-220px";
   } else {
     header.style.height = "90px";
     headerSide.style.left = "-510px";
     homeIcon.style.top = "20px";
-    homeIcon.style.display = "flex";
     header.style.top = "0%";
     searchPanel.style.top = "20px";
   }
@@ -168,8 +158,53 @@ window.addEventListener("wheel", function (event) {
   if (currentScreens === 0) {
     updateheader();
   }
-  foldingheader(currentScreens);
 });
+
+//ArrowUp and ArrowDown
+
+arrowUp.forEach((arrow, index) => {
+  arrow.addEventListener("click", () => {
+    /*let currentTop = parseFloat(window.getComputedStyle(gasketForScroll[index]).top) || 0;
+    let offset = gasketForScroll[index].scrollHeight / 4;
+    if (-(currentTop - offset) < 4*offset) 
+    gasketForScroll[index].style.top = `${currentTop - offset}px`;
+
+    console.log(`${currentTop - offset}px, ${gasketForScroll[index].scrollHeight}`);*/
+
+    if (!gasketForScroll[index].style.top) gasketForScroll[index].style.top = "0px";
+
+
+    let currentTop = parseFloat(gasketForScroll[index].style.top);
+    let offset = gasketForScroll[index].scrollHeight / 4;
+    if (-(currentTop + offset) > 0) 
+    gasketForScroll[index].style.top = `${currentTop + offset}px`;
+
+    console.log(`${currentTop + offset}px, ${gasketForScroll[index].scrollHeight}`);
+    });
+});  
+
+arrowDown.forEach((arrow, index) => {
+  arrow.addEventListener("click", () => {
+    /*
+    let currentTop = parseFloat(window.getComputedStyle(gasketForScroll[index]).top) || 0;
+    let offset = gasketForScroll[index].scrollHeight / 4;
+    if (-(currentTop + offset) > 0) 
+    gasketForScroll[index].style.top = `${currentTop + offset}px`;
+
+    console.log(`${currentTop + offset}px, ${gasketForScroll[index].scrollHeight}`);*/
+
+    if (!gasketForScroll[index].style.top) gasketForScroll[index].style.top = "0px";
+
+
+    let currentTop = parseFloat(gasketForScroll[index].style.top);
+    let offset = gasketForScroll[index].scrollHeight / 4;
+    if (-(currentTop - offset) < 4*offset) 
+    gasketForScroll[index].style.top = `${currentTop - offset}px`;
+
+    console.log(`${currentTop - offset}px, ${gasketForScroll[index].scrollHeight}`);
+    });
+});  
+
 
 ////////////////////////////////// работа с сабменю///////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
