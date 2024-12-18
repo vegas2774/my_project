@@ -35,7 +35,18 @@ let ulSearchList = document.getElementById("search-list");
 let headerTitle = Array.from(document.getElementsByClassName("header-title"));
 let arrowUp = Array.from(document.getElementsByClassName("arrowUp"));
 let arrowDown = Array.from(document.getElementsByClassName("arrowDown"));
+
 let gasketForScroll = document.getElementsByClassName("gasketForScroll");
+let slides = [];
+for (let i = 0; i < gasketForScroll.length; i++) 
+    slides.push(Array.from(gasketForScroll[i].children));
+currentSlide = new Array(gasketForScroll.length).fill(0);
+
+let slideNavigation = [];
+for (let i = 0; i < gasketForScroll.length; i++) 
+  slideNavigation.push(Array.from(document.getElementsByClassName("slide-menu-container")[i].children));
+
+console.log(slideNavigation);
 //const bodyBcgSize = parseFloat(window.getComputedStyle(body).backgroundSize);
 
 //////////////////////////////////////////////////////////////////////
@@ -81,15 +92,10 @@ menu.forEach((menuItem, index) => {
 //Анимация выпадания меню при свернутом header
 
 homeIcon.addEventListener("mouseenter", () => {
-  homeIcon.style.background =
-    "linear-gradient(0deg, rgba(255,255,255,0.22) 64%, rgba(218,37,1,0) 83%)";
   homeIcon.style.height = "460px";
 });
 
 homeIcon.addEventListener("mouseleave", () => {
-  setTimeout(() => {
-    homeIcon.style.background = "rgba(0, 0, 0, 0)";
-  }, 600);
   homeIcon.style.height = "75px";
 });
 
@@ -161,49 +167,43 @@ window.addEventListener("wheel", function (event) {
 });
 
 //ArrowUp and ArrowDown
-
+function displacementSlide(screenIndex, slide) {
+  console.log(screenIndex, slide);
+  let amountSlides = slides[screenIndex].length;
+  let amountSlidesUp = slide;
+  let amountSlidesDown = amountSlides - amountSlidesUp - 1;
+  for(let i = 0; i < amountSlidesUp; i++) {
+    slides[screenIndex][i].style.top = `-${(amountSlidesUp-i)*100}vh`;
+  }
+  slides[screenIndex][slide].style.top = "0px";
+  for(let i = slide + 1; i < amountSlides; i++) {
+    slides[screenIndex][i].style.top = `${(i - slide)*100}vh`;
+  }
+  currentSlide[screenIndex] = slide;
+}
 arrowUp.forEach((arrow, index) => {
   arrow.addEventListener("click", () => {
-    /*let currentTop = parseFloat(window.getComputedStyle(gasketForScroll[index]).top) || 0;
-    let offset = gasketForScroll[index].scrollHeight / 4;
-    if (-(currentTop - offset) < 4*offset) 
-    gasketForScroll[index].style.top = `${currentTop - offset}px`;
-
-    console.log(`${currentTop - offset}px, ${gasketForScroll[index].scrollHeight}`);*/
-
-    if (!gasketForScroll[index].style.top) gasketForScroll[index].style.top = "0px";
-
-
-    let currentTop = parseFloat(gasketForScroll[index].style.top);
-    let offset = gasketForScroll[index].scrollHeight / 4;
-    if (-(currentTop + offset) > 0) 
-    gasketForScroll[index].style.top = `${currentTop + offset}px`;
-
-    console.log(`${currentTop + offset}px, ${gasketForScroll[index].scrollHeight}`);
+   let currentSlideI = currentSlide[index];
+    if(currentSlideI - 1 >= 0) displacementSlide(index,--currentSlideI);
     });
 });  
 
 arrowDown.forEach((arrow, index) => {
   arrow.addEventListener("click", () => {
-    /*
-    let currentTop = parseFloat(window.getComputedStyle(gasketForScroll[index]).top) || 0;
-    let offset = gasketForScroll[index].scrollHeight / 4;
-    if (-(currentTop + offset) > 0) 
-    gasketForScroll[index].style.top = `${currentTop + offset}px`;
-
-    console.log(`${currentTop + offset}px, ${gasketForScroll[index].scrollHeight}`);*/
-
-    if (!gasketForScroll[index].style.top) gasketForScroll[index].style.top = "0px";
-
-
-    let currentTop = parseFloat(gasketForScroll[index].style.top);
-    let offset = gasketForScroll[index].scrollHeight / 4;
-    if (-(currentTop - offset) < 4*offset) 
-    gasketForScroll[index].style.top = `${currentTop - offset}px`;
-
-    console.log(`${currentTop - offset}px, ${gasketForScroll[index].scrollHeight}`);
+    let currentSlideI = currentSlide[index];
+    if(currentSlideI + 1 < slides[index].length) displacementSlide(index,++currentSlideI);
     });
 });  
+
+//Слайдер-навигация
+
+slideNavigation.forEach((slideGroup, screenIndex) => {
+  slideGroup.forEach((slideItem, slideIndex) => {
+    slideItem.addEventListener("click", () => {
+      displacementSlide(screenIndex, slideIndex);
+    });
+  });
+});
 
 
 ////////////////////////////////// работа с сабменю///////////////////////////////////////

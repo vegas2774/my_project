@@ -27,7 +27,6 @@
   .scrin {
     overflow-x: hidden;
     overflow-y: hidden;
-    overflow-y: scroll;
   }
 }
 
@@ -66,9 +65,6 @@ header {
 
 div.cont-home-icon {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   overflow: hidden;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0);
@@ -77,6 +73,15 @@ div.cont-home-icon {
   height: 75px;
   z-index: 1100;
   transition: 0.8s;
+}
+
+div.cont-home-icon div.gasket{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:linear-gradient(0deg, rgba(255,255,255,0.22) 64%, rgba(218,37,1,0) 83%);
+  height: 460px;
+  z-index: 1101;
 }
 
 img.home-icon {
@@ -533,14 +538,15 @@ nav ul li a img {
 .circle {
   width: 15px;
   height: 15px;
-  transform: translate(-50%, -50%);
   border: 1px solid black; 
   border-radius: 50%;
   background-color: white; 
 }
 
 .label {
-  transform: translate(-20px, -50%);
+  position: relative;
+  top: -10px;
+  right: 10px;
   font-size: 24px;
   color: rgb(255, 255, 255);
 }
@@ -561,6 +567,8 @@ div.gasketForScroll {
   transition: 0.4s;
 }
 div.gasketForScroll div{
+  position: absolute;
+  border: 1px solid red;
   background: radial-gradient(
     circle,
     rgba(0, 162, 255, 0.9) 0%,
@@ -572,7 +580,10 @@ div.gasketForScroll div{
   font-size: 30px;
   transition: 0.4s;
 }
-
+div.gasketForScroll div:nth-child(1){ top: 0vh; }
+div.gasketForScroll div:nth-child(2){ top: 100vh; }
+div.gasketForScroll div:nth-child(3){ top: 200vh; }
+div.gasketForScroll div:nth-child(4){ top: 300vh; }
 h2 /*заголовок для контактов*/ {
   color: #ffffff;
   padding-left: 5%;
