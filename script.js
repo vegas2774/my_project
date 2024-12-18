@@ -42,9 +42,10 @@ for (let i = 0; i < gasketForScroll.length; i++)
     slides.push(Array.from(gasketForScroll[i].children));
 currentSlide = new Array(gasketForScroll.length).fill(0);
 
+let slideNavigationContainer = Array.from(document.getElementsByClassName("slide-menu-container"));
 let slideNavigation = [];
 for (let i = 0; i < gasketForScroll.length; i++) 
-  slideNavigation.push(Array.from(document.getElementsByClassName("slide-menu-container")[i].children));
+  slideNavigation.push(Array.from(slideNavigationContainer[i].children));
 
 console.log(slideNavigation);
 //const bodyBcgSize = parseFloat(window.getComputedStyle(body).backgroundSize);
@@ -180,23 +181,29 @@ function displacementSlide(screenIndex, slide) {
     slides[screenIndex][i].style.top = `${(i - slide)*100}vh`;
   }
   currentSlide[screenIndex] = slide;
+  if(currentSlide[screenIndex] === 0) arrowUp[screenIndex].style.opacity = "0"; else arrowUp[screenIndex].style.opacity = "0.8";
+  if(currentSlide[screenIndex] === slides[screenIndex].length - 1) arrowDown[screenIndex].style.opacity = "0"; else arrowDown[screenIndex].style.opacity = "0.8";
+  console.log("dospaced", currentSlide[screenIndex]);
 }
 arrowUp.forEach((arrow, index) => {
   arrow.addEventListener("click", () => {
-   let currentSlideI = currentSlide[index];
-    if(currentSlideI - 1 >= 0) displacementSlide(index,--currentSlideI);
+      let currSl = currentSlide[index];
+      if(currSl - 1 >= 0) displacementSlide(index,--currSl);
     });
 });  
 
 arrowDown.forEach((arrow, index) => {
   arrow.addEventListener("click", () => {
-    let currentSlideI = currentSlide[index];
-    if(currentSlideI + 1 < slides[index].length) displacementSlide(index,++currentSlideI);
+    let currSl = currentSlide[index];
+    if(currSl + 1 < slides[index].length) displacementSlide(index,++currSl);
     });
 });  
 
 //Слайдер-навигация
 
+/*slideNavigationContainer.forEach((sNav, index) => {
+  sNav.style.left = 'calc(${(index+2) * 100}vw - 180px)';
+});*/
 slideNavigation.forEach((slideGroup, screenIndex) => {
   slideGroup.forEach((slideItem, slideIndex) => {
     slideItem.addEventListener("click", () => {
@@ -253,85 +260,109 @@ document.getElementById("otherBtn").addEventListener("click", function () {
 //////////////////////////// SEARCH /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-let example = [
+let searchDB = [
   {
     title: "HTML",
-    slide: 1,
-    section: 1,
+    screen: 1,
+    slide: 0,
     ancor: 0,
   },
   {
     title: "CSS",
-    slide: 2,
-    section: 1,
+    screen: 2,
+    slide: 0,
     ancor: 0,
   },
   {
     title: "JavaScript",
-    slide: 3,
-    section: 1,
+    screen: 3,
+    slide: 0,
     ancor: 0,
   },
   {
-    title: "FrontEnd",
-    slide: 4,
-    section: 1,
+    title: "Other",
+    screen: 4,
+    slide: 0,
     ancor: 0,
   },
   {
-    title: "HTML basic",
+    title: "HTML Basic",
+    screen: 1,
+    slide: 0,
+    ancor: 0,
+  },
+  {
+    title: "CSS Selector",
+    screen: 2,
+    slide: 0,
+    ancor: 0,
+  },
+  {
+    title: "JavaScript Noge.js",
+    screen: 3,
+    slide: 0,
+    ancor: 0,
+  },
+  {
+    title: "Other Docer",
+    screen: 4,
+    slide: 0,
+    ancor: 0,
+  },
+  {
+    title: "HTML Table",
+    screen: 1,
     slide: 1,
-    section: 1,
     ancor: 0,
   },
   {
-    title: "CSS selector",
+    title: "CSS Styles",
+    screen: 2,
+    slide: 1,
+    ancor: 0,
+  },
+  {
+    title: "JavaScript React",
+    screen: 3,
+    slide: 1,
+    ancor: 0,
+  },
+  {
+    title: "Other MySQL",
+    screen: 4,
+    slide: 1,
+    ancor: 0,
+  },
+  {
+    title: "HTML List",
+    screen: 1,
     slide: 2,
-    section: 1,
+    ancor: 0,
+  },
+  {
+    title: "CSS Leyout",
+    screen: 2,
+    slide: 2,
     ancor: 0,
   },
   {
     title: "JavaScript jQuery",
-    slide: 3,
-    section: 1,
-    ancor: 0,
-  },
-  {
-    title: "FrontEnd docer",
-    slide: 4,
-    section: 1,
-    ancor: 0,
-  },
-  {
-    title: "HTML list",
-    slide: 1,
-    section: 1,
-    ancor: 0,
-  },
-  {
-    title: "CSS flex",
+    screen: 3,
     slide: 2,
-    section: 1,
     ancor: 0,
   },
   {
-    title: "JavaScript Node.js",
-    slide: 3,
-    section: 1,
+    title: "Other GitHub",
+    screen: 4,
+    slide: 2,
     ancor: 0,
-  },
-  {
-    title: "FrontEnd MySQL",
-    slide: 4,
-    section: 1,
-    ancor: 0,
-  },
+  }
 ];
 
 searchInput.addEventListener("input", function () {
   ulSearchList.innerHTML = "";
   if (searchInput.value.length >= 2) {
-    let seekResult = example.filter(function (listPunct) {
+    let seekResult = searchDB.filter(function (listPunct) {
       return listPunct.title.toLowerCase().includes(searchInput.value);
     });
     console.log(seekResult);
@@ -344,7 +375,17 @@ searchInput.addEventListener("input", function () {
         move(i + 1);
       });
       ulSearchList.appendChild(newLi);
-      newLi.textContent = seekResult[i].title;
+      let [screenTitle, ...themeTitleArr] = seekResult[i].title.split(" ");
+      let themeTitle = themeTitleArr.join(" ");
+      newLi.innerHTML = `<strong>${screenTitle} &emsp; | &emsp;</strong> ${themeTitle}`;
+      //newLi.textContent = seekResult[i].title;
+      newLi.addEventListener("click", function () {
+        move(seekResult[i].screen);
+        setTimeout(() => displacementSlide(seekResult[i].screen-1, seekResult[i].slide), 500);
+        searchInput.value = "";
+        ulSearchList.style.display = "none";
+        console.log("move", seekResult[i].screen, seekResult[i].slide);
+      });
     }
   } else {
     ulSearchList.style.display = "none";
