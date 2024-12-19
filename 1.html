@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Styles Example</title>
+    <style>
+        .element {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: lightblue;
+            font-size: 16px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="myElement1" class="element">Height</div>
+    <div id="myElement2" class="element">Width</div>
+    <div id="myElement3" class="element">Font Size</div>
+
+    <script>
+
+        function setEvent(elementId, callback, size) {
+            let element = document.getElementById(elementId);
+                element.addEventListener('click', function() {
+                    callback(element, size);
+                });
+		console.log(333);
+        }
+
+        // Функция для изменения высоты элемента
+        function changeHeight(element, size) {
+            element.style.height = `${size}px`;
+        }
+
+        // Функция для изменения ширины элемента
+        function changeWidth(element, size) {
+            element.style.width = `${size}px`;
+        }
+
+        // Функция для изменения размера шрифта элемента
+        function changeFontSize(element, size) {
+            element.style.fontSize = `${size}px`;
+        }
+
+        // Привязываем функции к элементам с указанием размеров
+        setEvent('myElement1', changeHeight, 200);
+        setEvent('myElement2', changeWidth, 600);
+        setEvent('myElement3', changeFontSize, 44);
+    </script>
+</body>
+</html>
