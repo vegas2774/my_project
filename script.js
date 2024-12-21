@@ -2,8 +2,6 @@
 //////////////////////////// DECLARATION OF VARIABLES //////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
-
-
 let screens = Array.from(document.getElementsByClassName("scrin"));
 let numberScreens = screens.length;
 let web = document.getElementById("web");
@@ -38,13 +36,15 @@ let arrowDown = Array.from(document.getElementsByClassName("arrowDown"));
 
 let gasketForScroll = document.getElementsByClassName("gasketForScroll");
 let slides = [];
-for (let i = 0; i < gasketForScroll.length; i++) 
-    slides.push(Array.from(gasketForScroll[i].children));
+for (let i = 0; i < gasketForScroll.length; i++)
+  slides.push(Array.from(gasketForScroll[i].children));
 currentSlide = new Array(gasketForScroll.length).fill(0);
 
-let slideNavigationContainer = Array.from(document.getElementsByClassName("slide-menu-container"));
+let slideNavigationContainer = Array.from(
+  document.getElementsByClassName("slide-menu-container")
+);
 let slideNavigation = [];
-for (let i = 0; i < gasketForScroll.length; i++) 
+for (let i = 0; i < gasketForScroll.length; i++)
   slideNavigation.push(Array.from(slideNavigationContainer[i].children));
 
 console.log(slideNavigation);
@@ -99,7 +99,6 @@ homeIcon.addEventListener("mouseenter", () => {
 homeIcon.addEventListener("mouseleave", () => {
   homeIcon.style.height = "75px";
 });
-
 
 function updateheader() {
   if (currentScreens === 0) {
@@ -173,31 +172,34 @@ function displacementSlide(screenIndex, slide) {
   let amountSlides = slides[screenIndex].length;
   let amountSlidesUp = slide;
   let amountSlidesDown = amountSlides - amountSlidesUp - 1;
-  for(let i = 0; i < amountSlidesUp; i++) {
-    slides[screenIndex][i].style.top = `-${(amountSlidesUp-i)*100}vh`;
+  for (let i = 0; i < amountSlidesUp; i++) {
+    slides[screenIndex][i].style.top = `-${(amountSlidesUp - i) * 100}vh`;
   }
   slides[screenIndex][slide].style.top = "0px";
-  for(let i = slide + 1; i < amountSlides; i++) {
-    slides[screenIndex][i].style.top = `${(i - slide)*100}vh`;
+  for (let i = slide + 1; i < amountSlides; i++) {
+    slides[screenIndex][i].style.top = `${(i - slide) * 100}vh`;
   }
   currentSlide[screenIndex] = slide;
-  if(currentSlide[screenIndex] === 0) arrowUp[screenIndex].style.opacity = "0"; else arrowUp[screenIndex].style.opacity = "0.8";
-  if(currentSlide[screenIndex] === slides[screenIndex].length - 1) arrowDown[screenIndex].style.opacity = "0"; else arrowDown[screenIndex].style.opacity = "0.8";
+  if (currentSlide[screenIndex] === 0) arrowUp[screenIndex].style.opacity = "0";
+  else arrowUp[screenIndex].style.opacity = "0.8";
+  if (currentSlide[screenIndex] === slides[screenIndex].length - 1)
+    arrowDown[screenIndex].style.opacity = "0";
+  else arrowDown[screenIndex].style.opacity = "0.8";
   console.log("dospaced", currentSlide[screenIndex]);
 }
 arrowUp.forEach((arrow, index) => {
   arrow.addEventListener("click", () => {
-      let currSl = currentSlide[index];
-      if(currSl - 1 >= 0) displacementSlide(index,--currSl);
-    });
-});  
+    let currSl = currentSlide[index];
+    if (currSl - 1 >= 0) displacementSlide(index, --currSl);
+  });
+});
 
 arrowDown.forEach((arrow, index) => {
   arrow.addEventListener("click", () => {
     let currSl = currentSlide[index];
-    if(currSl + 1 < slides[index].length) displacementSlide(index,++currSl);
-    });
-});  
+    if (currSl + 1 < slides[index].length) displacementSlide(index, ++currSl);
+  });
+});
 
 //Слайдер-навигация
 
@@ -211,7 +213,6 @@ slideNavigation.forEach((slideGroup, screenIndex) => {
     });
   });
 });
-
 
 ////////////////////////////////// работа с сабменю///////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -356,7 +357,7 @@ let searchDB = [
     screen: 4,
     slide: 2,
     ancor: 0,
-  }
+  },
 ];
 
 searchInput.addEventListener("input", function () {
@@ -381,7 +382,11 @@ searchInput.addEventListener("input", function () {
       //newLi.textContent = seekResult[i].title;
       newLi.addEventListener("click", function () {
         move(seekResult[i].screen);
-        setTimeout(() => displacementSlide(seekResult[i].screen-1, seekResult[i].slide), 500);
+        setTimeout(
+          () =>
+            displacementSlide(seekResult[i].screen - 1, seekResult[i].slide),
+          500
+        );
         searchInput.value = "";
         ulSearchList.style.display = "none";
         console.log("move", seekResult[i].screen, seekResult[i].slide);

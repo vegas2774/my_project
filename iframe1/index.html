@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        width: 100vw;
+        height: 300vh;
+        background-color: black;
+      }
+      #mainImg {
+        position: relative;
+        width: 1000px;
+        height: 800px;
+        border: 2px solid black;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      #fone {
+        position: relative;
+        width: 1000px;
+        height: 800px;
+        transform: translate(0, 0%);
+        z-index: 1;
+      }
+      #fone1 {
+        position: relative;
+        width: 1000px;
+        height: 800px;
+        bottom: 800px;
+        transform: translate(0, 0%);
+      }
+      #fone2 {
+        position: relative;
+        bottom: 800px;
+        transform: translate(0, -80%);
+        z-index: 2;
+      }
+      #fone3 {
+        position: relative;
+        bottom: 800px;
+        transform: translate(0, -195%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainImg">
+      <img src="3b.png" id="fone" alt="no img" />
+      <img src="3a.jpg" id="fone1" alt="no img" />
+      <img src="3d.png" id="fone2" alt="no img" />
+      <img src="3c.png" id="fone3" alt="no img" />
+    </div>
+    <script>
+      let parallaxContainerStar = document.getElementById("fone");
+      let parallaxContainerCity = document.getElementById("fone1");
+      let parallaxContainerGirl = document.getElementById("fone2");
+      let parallaxContainerMoon = document.getElementById("fone3");
+      window.addEventListener("scroll", function (event) {
+        let scrollY = window.scrollY;
+
+        parallaxContainerStar.style.transform = `translate(0, calc(0% + ${
+          scrollY * 0.2
+        }px))`;
+        parallaxContainerCity.style.transform = `translate(0, calc(0% + ${
+          scrollY * 0.01
+        }px))`;
+        parallaxContainerGirl.style.transform = `translate(0, calc(-90% + ${
+          scrollY * 0.7
+        }px))`;
+        parallaxContainerMoon.style.transform = `translate(0, calc(-195% + ${
+          scrollY * 0.3
+        }px))`;
+      });
+    </script>
+  </body>
+</html>
