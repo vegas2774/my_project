@@ -197,7 +197,11 @@ arrowUp.forEach((arrow, index) => {
 arrowDown.forEach((arrow, index) => {
   arrow.addEventListener("click", () => {
     let currSl = currentSlide[index];
-    if (currSl + 1 < slides[index].length) displacementSlide(index, ++currSl);
+    if (currSl + 1 < slides[index].length) {
+      displacementSlide(index, ++currSl);
+    } else {
+      displacementSlide(index, 0);
+    }
   });
 });
 

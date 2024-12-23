@@ -44,6 +44,25 @@
         bottom: 800px;
         transform: translate(0, -195%);
       }
+
+      #textContent {
+        position: absolute;
+        top: 115%;
+        width: 100%;
+        height: 100%;
+        line-height: 35px;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 24px;
+        font-family: Arial, sans-serif;
+      }
+      #textContent p {
+        margin: 5px;
+        padding: 0px;
+      }
     </style>
   </head>
   <body>
@@ -53,6 +72,27 @@
       <img src="3d.png" id="fone2" alt="no img" />
       <img src="3c.png" id="fone3" alt="no img" />
     </div>
+    <div id="textContent">
+      <p>
+        <code>
+          let parallaxContainerStar = document.getElementById("fone");
+          <br />
+          let parallaxContainerCity = document.getElementById("fone1");
+          <br />let parallaxContainerGirl = document.getElementById("fone2");
+          <br />let parallaxContainerMoon = document.getElementById("fone3");
+          <br /><br />
+          window.addEventListener("scroll", function (event) { <br />let scrollY
+          = window.scrollY; parallaxContainerStar.style.transform =
+          `translate(0, calc(0% + ${ scrollY * 0.2 }px))`;<br />
+          parallaxContainerCity.style.transform = `translate(0, calc(0% + ${
+          scrollY * 0.01 }px))`; <br />
+          parallaxContainerGirl.style.transform = `translate(0, calc(-90% + ${
+          scrollY * 0.7 }px))`;<br />
+          parallaxContainerMoon.style.transform = `translate(0, calc(-195% + ${
+          scrollY * 0.3 }px))`; });
+        </code>
+      </p>
+    </div>
     <script>
       let parallaxContainerStar = document.getElementById("fone");
       let parallaxContainerCity = document.getElementById("fone1");
@@ -60,7 +100,6 @@
       let parallaxContainerMoon = document.getElementById("fone3");
       window.addEventListener("scroll", function (event) {
         let scrollY = window.scrollY;
-
         parallaxContainerStar.style.transform = `translate(0, calc(0% + ${
           scrollY * 0.2
         }px))`;

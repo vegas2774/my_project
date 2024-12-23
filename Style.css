@@ -665,3 +665,10 @@ nav ul a {
     gap: 5%;
   }
 }
+
+#logoIFrame {
+  position: relative;
+  left: 30vw;
+  top: 15vh;
+  overflow-x: none;
+}
